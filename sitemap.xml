@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.mudanzascsimon.es/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>1.00</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mudanzascsimon.es/hogar-oficina.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.mudanzascsimon.es/Embalaje-Premium.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.mudanzascsimon.es/Punto-Limpio.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.mudanzascsimon.es/Guardamuebles.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mudanzascsimon.es/AvisoLegal.html</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.mudanzascsimon.es/PoliticaPrivacidad.html</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.mudanzascsimon.es/PoliticaCookies.html</loc>
+    <priority>0.50</priority>
+  </url>
+</urlset>
