@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <title>Embalaje Premium — Mudanzas C.Simon</title>
+  <meta name="description" content="Servicio de embalaje profesional en Málaga y toda España. Protegemos su vajilla, ropa y muebles con los mejores materiales." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316', darkOrange: '#ea580c', blue: '#1e3a8a', lightBlue: '#eff6ff', bgBlue: '#f0f4f8'
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          animation: { 'bounce-slow': 'bounce 3s infinite' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <style> 
+    body { font-family: 'Inter', sans-serif; }
+    .reveal-fade { opacity: 0; transition: opacity 1.5s ease-out; }
+    .reveal-visible { opacity: 1; }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen relative">
+
+  <a href="https://wa.me/34622115760?text=Hola,%20me%20interesa%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20embalaje" 
+     target="_blank"
+     class="fixed bottom-6 right-6 z-[999] flex items-center gap-2 group hover:-translate-y-1 transition-transform duration-300">
+    <span class="bg-white text-slate-800 px-3 py-1 rounded-lg shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity hidden md:block">
+      ¡Escríbenos!
+    </span>
+    <div class="bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-green-900/20 animate-bounce-slow">
+      <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </a>
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="PaginaPrincipal.html" class="flex items-center gap-3 group self-start md:self-auto">
+        <div class="w-10 h-10 bg-brand-orange rounded-md flex items-center justify-center text-white font-bold text-xl shadow-sm group-hover:bg-brand-darkOrange transition-colors">
+          M
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-brand-blue leading-tight">Mudanzas C.Simon</h1>
+          <p class="text-xs text-gray-500">Costa del Sol</p>
+        </div>
+      </a>
+      
+      <nav class="flex flex-wrap gap-4 md:gap-6 text-sm font-bold text-slate-600 justify-center">
+        <a href="PaginaPrincipal.html" class="hover:text-brand-orange transition-colors">Inicio</a>
+        <a href="hogar-oficina.html" class="hover:text-brand-orange transition-colors">Hogar y Oficina</a>
+        <a href="Embalaje-Premium.html" class="text-brand-orange transition-colors">Embalaje</a>
+        <a href="Guardamuebles.html" class="hover:text-brand-orange transition-colors">Guardamuebles</a>
+        <a href="Punto-Limpio.html" class="hover:text-brand-orange transition-colors">Punto Limpio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <section class="bg-brand-blue text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Embalaje Profesional</h1>
+            <p class="text-blue-100 text-lg">Protección máxima para sus objetos más valiosos.</p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-brand-blue">¿Por qué nuestro embalaje es diferente?</h2>
+            <p class="mt-3 text-slate-600 max-w-2xl mx-auto">No es solo meter cosas en cajas. Es asegurar que todo llegue intacto. Utilizamos materiales de primera calidad y técnicas especializadas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Cajas Doble Canal</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Utilizamos cajas reforzadas de alta resistencia que soportan peso y apilamiento sin deformarse.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Cajas Armario</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Su ropa viaja colgada en perchas dentro de cajas especiales. Llega lista para guardar, sin arrugas.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Vajilla y Frágiles</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Envolvemos cada pieza de cristalería y porcelana individualmente con papel burbuja y manila.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Organización Total</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Todo etiquetado por habitación y contenido. Sabrá exactamente dónde está cada cosa al llegar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-12 mb-12">
+        <h3 class="text-2xl font-bold text-brand-blue mb-8 border-l-4 border-brand-orange pl-4">Así trabajamos</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+            
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-2xl relative reveal-fade group">
+                <img src="./fotos/Embalaje-cama.jpg" alt="Embalaje de colchón y cama" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/Embalaje.jpg" alt="Proceso de embalaje profesional" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/Camion-Ordenado.jpg" alt="Organización de cajas" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/Embalaje-MueblesGrandes.jpg" alt="Protección de muebles grandes" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="relative bg-slate-900 py-20 text-white overflow-hidden border-t border-slate-800">
+        <div class="absolute inset-0 bg-slate-900/95 z-10"></div>
+        <div class="absolute inset-0 bg-[url('./fotos/Embalaje.jpg')] bg-cover bg-center opacity-20 filter blur-sm"></div>
+        
+        <div class="relative z-20 max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-extrabold text-center mb-12 uppercase tracking-wider">¿Cómo Trabajamos?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="text-6xl font-black mb-4 text-brand-orange">1</div>
+                    <h3 class="text-xl font-bold mb-3">Ponte en Contacto</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Llámanos, escríbenos por WhatsApp o rellena el formulario. Estamos en Instagram y Facebook.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="text-6xl font-black mb-4 text-brand-orange">2</div>
+                    <h3 class="text-xl font-bold mb-3">Visita y Presupuesto</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Visitamos tu inmueble sin coste ni compromiso para darte un precio cerrado y justo.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="text-6xl font-black mb-4 text-brand-orange">3</div>
+                    <h3 class="text-xl font-bold mb-3">Mudanza</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Nos ocupamos de todo: desmontaje, embalaje y transporte. Tú solo disfruta de tu nuevo hogar.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contacto" class="inline-block bg-brand-orange hover:bg-brand-darkOrange text-white font-bold py-3 px-8 rounded shadow-lg transition-transform hover:-translate-y-1">
+                    Pedir Presupuesto Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-brand-blue text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-brand-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+  
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 relative z-10">
+          <div>
+            <h3 class="text-3xl font-bold">Pide tu presupuesto GRATIS</h3>
+            <p class="mt-4 text-blue-100 text-lg font-medium">Mudanzas Nacionales: Servicio en Málaga y toda España.</p>
+            <p class="mt-2 text-blue-200 text-lg">Rellena el formulario y recibe una estimación en menos de 24 horas.</p>
+            
+            <form action="https://formspree.io/f/xldqdlqn" method="POST" class="mt-8 space-y-4 bg-white p-8 rounded-2xl shadow-2xl text-slate-800">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre</label>
+                    <input name="name" type="text" placeholder="Tu nombre" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+                 </div>
+                 <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Teléfono</label>
+                    <input name="phone" type="tel" placeholder="600..." required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+                 </div>
+              </div>
+            
+              <div>
+                  <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Correo Electrónico</label>
+                  <input name="email" type="email" placeholder="tu@email.com" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+              </div>
+              
+              <div>
+                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Origen y Destino (Aprox)</label>
+                <input name="route" type="text" placeholder="Ej: De Estepona centro a Madrid" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+              </div>
+            
+              <div>
+                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Detalles</label>
+                <textarea name="message" placeholder="¿Hay ascensor? ¿Necesitas embalaje?" required class="w-full border border-gray-300 rounded-lg px-4 py-3 h-28 resize-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50"></textarea>
+              </div>
+            
+              <div class="flex items-start gap-3 mt-2">
+                  <input type="checkbox" name="privacy_accepted" required id="privacy" class="mt-1 w-4 h-4 text-brand-orange rounded border-gray-300 focus:ring-brand-orange cursor-pointer">
+                  <label for="privacy" class="text-xs text-slate-500 cursor-pointer">
+                    He leído y acepto la <a href="#" class="underline hover:text-brand-orange">política de privacidad</a> y el tratamiento de mis datos para recibir el presupuesto.
+                  </label>
+              </div>
+            
+              <button type="submit" class="bg-brand-orange text-white px-6 py-4 rounded-lg font-bold w-full hover:bg-brand-darkOrange transition-all shadow-lg hover:shadow-orange-500/30 text-lg flex justify-center items-center gap-2 group mt-4">
+                Enviar solicitud
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </form>
+          </div>
+  
+          <aside class="flex flex-col h-full gap-6 mt-4 md:mt-0">
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-lg">
+              <h4 class="font-bold text-xl mb-6 text-white border-b border-white/20 pb-4">Información directa</h4>
+              <div class="space-y-6 text-blue-50">
+                <div class="flex items-center gap-4 group cursor-pointer">
+                  <span class="bg-brand-orange text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg group-hover:scale-110 transition-transform">📞</span>
+                  <div>
+                    <p class="text-xs uppercase text-blue-200 font-bold">Llámanos</p>
+                    <a href="tel:622115760" class="hover:text-white font-bold text-xl transition">622 115 760</a>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 group cursor-pointer">
+                  <span class="bg-brand-orange text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg group-hover:scale-110 transition-transform">✉️</span>
+                   <div>
+                    <p class="text-xs uppercase text-blue-200 font-bold">Escríbenos</p>
+                    <a href="mailto:Mudanzas.c.simon@gmail.com" class="hover:text-white font-medium text-lg transition">Mudanzas.c.simon@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-slate-200 rounded-2xl overflow-hidden flex-grow border-4 border-white/20 shadow-inner min-h-[300px] relative">
+              <iframe 
+                src="https://maps.google.com/maps?q=Estepona,+Malaga&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                title="Mapa de localización en Estepona">
+              </iframe>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+  </main>
+
+  <footer class="bg-slate-900 border-t border-slate-800 py-12 mt-auto">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="font-bold text-white text-lg mb-2">Mudanzas C.Simon</p>
+        <p class="text-slate-400 text-sm">© 2025 Todos los derechos reservados.</p>
+        
+        <div class="flex justify-center gap-4 mt-6 mb-4">
+              <a href="https://www.facebook.com/mudanzas.c.simon" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-orange transition-all" aria-label="Facebook">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+              </a>
+              <a href="https://www.instagram.com/mudanzascsimon/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-orange transition-all" aria-label="Instagram">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+        </div>
+
+        <div class="mt-4">
+              <a href="PaginaPrincipal.html" class="text-brand-orange hover:text-white transition-colors underline">Volver a la página principal</a>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const revealElements = document.querySelectorAll('.reveal-fade');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>

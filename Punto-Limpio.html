@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <title>Punto Limpio y Retirada — Mudanzas C.Simon</title>
+  <meta name="description" content="Servicio de recogida de muebles viejos y punto limpio en Málaga. Vaciado de pisos, oficinas y reciclaje certificado." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#f97316', darkOrange: '#ea580c', blue: '#1e3a8a', lightBlue: '#eff6ff', bgBlue: '#f0f4f8'
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          animation: { 'bounce-slow': 'bounce 3s infinite' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <style> 
+    body { font-family: 'Inter', sans-serif; }
+    .reveal-fade { opacity: 0; transition: opacity 1.5s ease-out; }
+    .reveal-visible { opacity: 1; }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen relative">
+
+  <a href="https://wa.me/34622115760?text=Hola,%20me%20interesa%20el%20servicio%20de%20retirada%20de%20muebles/punto%20limpio" 
+     target="_blank"
+     class="fixed bottom-6 right-6 z-[999] flex items-center gap-2 group hover:-translate-y-1 transition-transform duration-300">
+    <span class="bg-white text-slate-800 px-3 py-1 rounded-lg shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity hidden md:block">
+      ¡Retiramos sus muebles!
+    </span>
+    <div class="bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-green-900/20 animate-bounce-slow">
+      <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </a>
+
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="PaginaPrincipal.html" class="flex items-center gap-3 group self-start md:self-auto">
+        <div class="w-10 h-10 bg-brand-orange rounded-md flex items-center justify-center text-white font-bold text-xl shadow-sm group-hover:bg-brand-darkOrange transition-colors">
+          M
+        </div>
+        <div>
+          <h1 class="text-lg font-bold text-brand-blue leading-tight">Mudanzas C.Simon</h1>
+          <p class="text-xs text-gray-500">Costa del Sol</p>
+        </div>
+      </a>
+      
+      <nav class="flex flex-wrap gap-4 md:gap-6 text-sm font-bold text-slate-600 justify-center">
+        <a href="PaginaPrincipal.html" class="hover:text-brand-orange transition-colors">Inicio</a>
+        <a href="hogar-oficina.html" class="hover:text-brand-orange transition-colors">Hogar y Oficina</a>
+        <a href="Embalaje-Premium.html" class="hover:text-brand-orange transition-colors">Embalaje</a>
+        <a href="Guardamuebles.html" class="hover:text-brand-orange transition-colors">Guardamuebles</a>
+        <a href="Punto-Limpio.html" class="text-brand-orange transition-colors">Punto Limpio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <section class="bg-brand-blue text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Punto Limpio y Vaciado</h1>
+            <p class="text-blue-100 text-lg">Nos encargamos de retirar sus muebles viejos, electrodomésticos y escombros de forma responsable y ecológica.</p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-brand-blue">Despreocúpese de lo que ya no sirve</h2>
+            <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Ya sea por una mudanza, una reforma o limpieza general, nosotros recogemos, cargamos y reciclamos todo según la normativa vigente.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">100% Ecológico</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Clasificamos los residuos (madera, plástico, metal) para asegurar su correcto reciclaje en planta autorizada.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Sin Esfuerzo</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Nosotros desarmamos, cargamos y bajamos los muebles, tenga o no ascensor. Usted no tiene que mover ni un dedo.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Servicio Legal</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Evite multas por dejar enseres en la vía pública. Entregamos certificado de destrucción si lo necesita.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center hover:-translate-y-1 transition-transform duration-300 group">
+                <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Vaciado de Pisos</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Dejamos su inmueble, trastero o local comercial totalmente vacío y barrido en tiempo récord.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-12 mb-12">
+        <h3 class="text-2xl font-bold text-brand-blue mb-8 border-l-4 border-brand-orange pl-4">Casos Reales</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-2xl relative reveal-fade group">
+                <img src="./fotos/PuntoLimpio-furgoneta.jpg" alt="Furgoneta lista para punto limpio" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/Maderas-puntoLimpio.jpg" alt="Reciclaje de maderas" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/SIllas-PuntoLimpio.jpeg" alt="Retirada de sillas" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/PuntoLimpio-Pales.jpeg" alt="Recogida de palés" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/Electrodomesticos-PuntoLimpio.jpeg" alt="Reciclaje de electrodomésticos" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+
+            <div class="w-full aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-xl relative reveal-fade group">
+                <img src="./fotos/Mesas-PuntoLimpio.jpeg" alt="Retirada de mesas y mobiliario" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="relative bg-slate-900 py-20 text-white overflow-hidden border-t border-slate-800">
+        <div class="absolute inset-0 bg-slate-900/95 z-10"></div>
+        <div class="absolute inset-0 bg-[url('./fotos/PuntoLimpio-furgoneta.jpg')] bg-cover bg-center opacity-20 filter blur-sm"></div>
+        
+        <div class="relative z-20 max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-extrabold text-center mb-12 uppercase tracking-wider">¿Cómo funciona la retirada?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="text-6xl font-black mb-4 text-brand-orange">1</div>
+                    <h3 class="text-xl font-bold mb-3">Envíenos una Foto</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Mándenos fotos de lo que hay que retirar por WhatsApp. Así le damos precio cerrado al momento.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="text-6xl font-black mb-4 text-brand-orange">2</div>
+                    <h3 class="text-xl font-bold mb-3">Recogida Rápida</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Acudimos el día acordado, desmontamos y cargamos todo rápidamente. Sin molestias para vecinos.
+                    </p>
+                </div>
+                
+                <div class="text-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="text-6xl font-black mb-4 text-brand-orange">3</div>
+                    <h3 class="text-xl font-bold mb-3">Reciclaje</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Llevamos todo al Punto Limpio autorizado para su tratamiento y reciclaje correcto.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contacto" class="inline-block bg-brand-orange hover:bg-brand-darkOrange text-white font-bold py-3 px-8 rounded shadow-lg transition-transform hover:-translate-y-1">
+                    Pedir Presupuesto de Retirada
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-brand-blue text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-brand-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+  
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 relative z-10">
+          <div>
+            <h3 class="text-3xl font-bold">Solicite Presupuesto de Retirada</h3>
+            <p class="mt-4 text-blue-100 text-lg font-medium">Servicio en Málaga y alrededores.</p>
+            <p class="mt-2 text-blue-200 text-lg">Indíquenos qué necesita tirar o vaciar y le respondemos hoy mismo.</p>
+            
+            <form action="https://formspree.io/f/xldqdlqn" method="POST" class="mt-8 space-y-4 bg-white p-8 rounded-2xl shadow-2xl text-slate-800">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre</label>
+                    <input name="name" type="text" placeholder="Tu nombre" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+                 </div>
+                 <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Teléfono</label>
+                    <input name="phone" type="tel" placeholder="600..." required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+                 </div>
+              </div>
+            
+              <div>
+                  <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Correo Electrónico</label>
+                  <input name="email" type="email" placeholder="tu@email.com" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+              </div>
+              
+              <div>
+                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Ubicación de la retirada</label>
+                <input name="address" type="text" placeholder="Ej: Calle Real, Estepona (3º sin ascensor)" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+              </div>
+            
+              <div>
+                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">¿Qué hay que retirar?</label>
+                <textarea name="message" placeholder="Ej: Un sofá de 3 plazas, una lavadora vieja y 10 bolsas de ropa..." required class="w-full border border-gray-300 rounded-lg px-4 py-3 h-28 resize-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50"></textarea>
+              </div>
+            
+              <div class="flex items-start gap-3 mt-2">
+                  <input type="checkbox" name="privacy_accepted" required id="privacy" class="mt-1 w-4 h-4 text-brand-orange rounded border-gray-300 focus:ring-brand-orange cursor-pointer">
+                  <label for="privacy" class="text-xs text-slate-500 cursor-pointer">
+                    He leído y acepto la <a href="#" class="underline hover:text-brand-orange">política de privacidad</a>.
+                  </label>
+              </div>
+            
+              <button type="submit" class="bg-brand-orange text-white px-6 py-4 rounded-lg font-bold w-full hover:bg-brand-darkOrange transition-all shadow-lg hover:shadow-orange-500/30 text-lg flex justify-center items-center gap-2 group mt-4">
+                Solicitar Retirada
+                <span class="group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </form>
+          </div>
+  
+          <aside class="flex flex-col h-full gap-6 mt-4 md:mt-0">
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-lg">
+              <h4 class="font-bold text-xl mb-6 text-white border-b border-white/20 pb-4">Contacto Directo</h4>
+              <div class="space-y-6 text-blue-50">
+                <div class="flex items-center gap-4 group cursor-pointer">
+                  <span class="bg-brand-orange text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg group-hover:scale-110 transition-transform">📞</span>
+                  <div>
+                    <p class="text-xs uppercase text-blue-200 font-bold">Llámanos</p>
+                    <a href="tel:622115760" class="hover:text-white font-bold text-xl transition">622 115 760</a>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 group cursor-pointer">
+                  <span class="bg-brand-orange text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg group-hover:scale-110 transition-transform">✉️</span>
+                   <div>
+                    <p class="text-xs uppercase text-blue-200 font-bold">Escríbenos</p>
+                    <a href="mailto:Mudanzas.c.simon@gmail.com" class="hover:text-white font-medium text-lg transition">Mudanzas.c.simon@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-slate-200 rounded-2xl overflow-hidden flex-grow border-4 border-white/20 shadow-inner min-h-[300px] relative">
+              <iframe 
+                src="https://maps.google.com/maps?q=Estepona,+Malaga&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                title="Ubicación C.Simon">
+              </iframe>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+  </main>
+
+  <footer class="bg-slate-900 border-t border-slate-800 py-12 mt-auto">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="font-bold text-white text-lg mb-2">Mudanzas C.Simon</p>
+        <p class="text-slate-400 text-sm">© 2025 Todos los derechos reservados.</p>
+        
+        <div class="flex justify-center gap-4 mt-6 mb-4">
+              <a href="https://www.facebook.com/mudanzas.c.simon" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-orange transition-all" aria-label="Facebook">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+              </a>
+              <a href="https://www.instagram.com/mudanzascsimon/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-orange transition-all" aria-label="Instagram">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+        </div>
+
+        <div class="mt-4">
+              <a href="PaginaPrincipal.html" class="text-brand-orange hover:text-white transition-colors underline">Volver a la página principal</a>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const revealElements = document.querySelectorAll('.reveal-fade');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>
