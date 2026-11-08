@@ -1,0 +1,113 @@
+{#- Bloque de contacto común. Cada página lo configura con su variable "contacto" (ver README). #}
+{%- macro campo(id, nombre, etiqueta, tipo="text", obligatorio=false, placeholder="", autocomplete="", maxlength=120, extra="") -%}
+<div>
+  <label for="{{ id }}" class="field-label">{{ etiqueta }}{% if obligatorio %} <span class="text-accent-text" aria-hidden="true">*</span>{% endif %}</label>
+  <input id="{{ id }}" name="{{ nombre }}" type="{{ tipo }}" class="field"{% if placeholder %} placeholder="{{ placeholder }}"{% endif %}{% if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %} maxlength="{{ maxlength }}"{% if obligatorio %} required{% endif %} {{ extra | safe }}>
+  <p id="{{ id }}-error" class="field-error hidden"></p>
+</div>
+{%- endmacro %}
+
+<section id="contacto" class="bg-ink py-16 text-white md:py-24">
+  <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
+    <div>
+      <h2 class="text-3xl font-bold text-white md:text-4xl">{{ contacto.titulo }}</h2>
+      {%- for texto in contacto.textos %}
+      <p class="{% if loop.first %}mt-4{% else %}mt-2{% endif %} text-lg text-slate-300">{{ texto }}</p>
+      {%- endfor %}
+
+      <form action="{{ site.formspree }}" method="POST" data-form class="mt-8 space-y-5 rounded-xl bg-white p-6 text-body md:p-8">
+        <input type="hidden" name="_subject" value="Nueva solicitud web: {{ contacto.asunto }}">
+        <input type="hidden" name="pagina" value="{{ contacto.asunto }}">
+        {#- Campo trampa: las personas no lo ven; si un robot lo rellena, Formspree descarta el envío #}
+        <div class="hidden" aria-hidden="true">
+          <label for="f-web">No rellenes este campo</label>
+          <input id="f-web" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="text-sm text-muted">Los campos con <span class="text-accent-text" aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
+
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+          {{ campo("f-nombre", "name", "Nombre", obligatorio=true, placeholder="Tu nombre", autocomplete="name", maxlength=80) }}
+          {{ campo("f-telefono", "phone", "Teléfono", tipo="tel", obligatorio=true, placeholder="600 000 000", autocomplete="tel", maxlength=20, extra='inputmode="tel" pattern="[0-9 +.\\(\\)\\-]{9,20}"') }}
+        </div>
+
+        {{ campo("f-email", "email", "Correo electrónico", tipo="email", obligatorio=true, placeholder="tu@email.com", autocomplete="email") }}
+
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+          {%- if contacto.vivienda %}
+          <div>
+            <label for="f-vivienda" class="field-label">Tipo de inmueble</label>
+            <select id="f-vivienda" name="tipo_inmueble" class="field">
+              <option value="">Selecciona una opción</option>
+              <option>Piso</option>
+              <option>Casa o chalet</option>
+              <option>Oficina o local</option>
+              <option>Trastero o garaje</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          {%- endif %}
+          {{ campo("f-fecha", "fecha_aproximada", "Fecha aproximada", placeholder="Ej.: mediados de marzo", autocomplete="off", maxlength=60) }}
+          {%- if contacto.extra %}
+          <div{% if not contacto.vivienda %} class="md:col-span-1"{% else %} class="md:col-span-2"{% endif %}>
+            {{ campo("f-" + contacto.extra.id, contacto.extra.nombre, contacto.extra.etiqueta, placeholder=contacto.extra.placeholder, autocomplete=contacto.extra.autocomplete or "off", maxlength=150) }}
+          </div>
+          {%- endif %}
+        </div>
+
+        <div>
+          <label for="f-detalles" class="field-label">{{ contacto.mensaje.etiqueta }} <span class="text-accent-text" aria-hidden="true">*</span></label>
+          <textarea id="f-detalles" name="message" class="field h-32 resize-none" placeholder="{{ contacto.mensaje.placeholder }}" maxlength="2000" required></textarea>
+          <p id="f-detalles-error" class="field-error hidden"></p>
+        </div>
+
+        <div>
+          <div class="flex items-start gap-3">
+            <input type="checkbox" name="privacy_accepted" required id="privacy" class="mt-1 h-4 w-4 cursor-pointer accent-primary">
+            <label for="privacy" class="cursor-pointer text-sm text-muted">
+              He leído y acepto la <a href="/politica-privacidad/" target="_blank" rel="noopener" class="text-primary underline hover:text-primary-dark">política de privacidad</a> y el tratamiento de mis datos para recibir el presupuesto. <span class="text-accent-text" aria-hidden="true">*</span>
+            </label>
+          </div>
+          <p id="privacy-error" class="field-error hidden"></p>
+        </div>
+
+        <button type="submit" class="btn-primary mt-2 w-full">
+          <span data-form-texto>Enviar solicitud</span> <span aria-hidden="true">→</span>
+        </button>
+
+        <div data-form-estado class="hidden rounded-lg p-4 text-sm" tabindex="-1"></div>
+      </form>
+    </div>
+
+    <aside aria-label="Datos de contacto" class="mt-4 flex h-full flex-col gap-6 md:mt-0">
+      <div class="rounded-xl border border-white/10 bg-white/5 p-8">
+        <h3 class="mb-6 border-b border-white/10 pb-4 text-lg font-semibold text-white">Contacto directo</h3>
+        <address class="space-y-6 not-italic text-slate-200">
+          <div class="flex items-center gap-4">
+            <span aria-hidden="true" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11.04 11.04 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg></span>
+            <div>
+              <p class="text-sm text-slate-400">Llámanos</p>
+              <a href="tel:{{ site.telefono }}" class="text-lg font-semibold text-white transition-colors hover:text-accent">{{ site.telefonoTexto }}</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span aria-hidden="true" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
+            <div>
+              <p class="text-sm text-slate-400">Escríbenos</p>
+              <a href="mailto:{{ site.email }}" class="break-all font-medium text-white transition-colors hover:text-accent">{{ site.email }}</a>
+            </div>
+          </div>
+        </address>
+      </div>
+
+      <div class="relative min-h-[280px] flex-grow overflow-hidden rounded-xl border border-white/10">
+        <button type="button" data-map-src="https://maps.google.com/maps?q=Estepona,+Malaga&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" data-map-title="Mapa de localización en Estepona" class="absolute inset-0 flex h-full w-full flex-col items-center justify-center gap-2 bg-white/5 text-white transition-colors hover:bg-white/10">
+          <svg class="h-10 w-10 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+          <span class="text-lg font-semibold">Estepona, Málaga</span>
+          <span class="text-sm underline">Ver mapa interactivo</span>
+        </button>
+        <noscript><a href="https://maps.google.com/?q=Estepona,+Malaga" class="absolute inset-0 flex items-center justify-center font-semibold text-white underline">Ver ubicación en Google Maps</a></noscript>
+      </div>
+    </aside>
+  </div>
+</section>

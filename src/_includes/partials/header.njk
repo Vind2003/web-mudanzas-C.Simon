@@ -1,0 +1,32 @@
+{#- Cabecera común. En móvil es compacta con botón de menú; desde tablet queda fija arriba. #}
+<header class="z-50 border-b border-line bg-white md:sticky md:top-0">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 px-6 py-3">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/fotos/web/logo-168.webp" width="112" height="168" alt="Logotipo de Mudanzas C.Simon" class="h-12 w-auto rounded-md">
+      <span>
+        <span class="block font-display text-lg font-bold leading-tight text-ink">Mudanzas C.Simon</span>
+        <span class="block text-xs text-muted">Costa del Sol</span>
+      </span>
+    </a>
+
+    <button type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line text-ink md:hidden">
+      <svg data-menu-icon="abrir" aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg data-menu-icon="cerrar" aria-hidden="true" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      <span class="sr-only">Menú</span>
+    </button>
+
+    <nav id="menu-principal" aria-label="Principal" class="hidden w-full md:block md:w-auto">
+      <ul class="flex flex-col gap-1 border-t border-line py-3 text-base font-medium text-body md:flex-row md:items-center md:gap-6 md:border-0 md:py-0 md:text-sm">
+        {%- for item in site.nav %}
+        <li>
+          <a href="{{ item.url }}" class="block rounded-lg px-2 py-2 transition-colors hover:text-primary md:px-0 md:py-1{% if nav == item.clave %} font-semibold text-primary{% endif %}"{% if nav == item.clave %} aria-current="page"{% endif %}>{{ item.texto }}</a>
+        </li>
+        {%- endfor %}
+        <li class="pt-2 md:pt-0">
+          <a href="{% if contacto %}#contacto{% else %}/#contacto{% endif %}" class="btn-primary w-full px-4 py-2 md:w-auto">Pedir presupuesto</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

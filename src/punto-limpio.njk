@@ -1,0 +1,205 @@
+---
+layout: "layouts/base.njk"
+permalink: "/punto-limpio/"
+title: "Retirada de Muebles y Punto Limpio en Málaga | C.Simon"
+description: "Retirada de muebles viejos, electrodomésticos y enseres en Estepona y Málaga. Vaciado de pisos, locales y oficinas con traslado responsable al punto limpio."
+ogImagen: "og-punto-limpio.jpg"
+ogAlt: "Furgoneta cargada para llevar enseres al punto limpio"
+nav: "punto"
+waTexto: "Hola, me interesa el servicio de retirada de muebles y punto limpio"
+contacto:
+  titulo: "Pide presupuesto de retirada"
+  textos:
+    - "Servicio en Málaga y alrededores."
+    - "Dinos qué necesitas tirar o vaciar y te respondemos hoy mismo."
+  asunto: "Punto limpio"
+  vivienda: false
+  extra:
+    id: "direccion"
+    nombre: "address"
+    etiqueta: "Ubicación de la retirada"
+    placeholder: "Ej.: Calle Real, Estepona (3.º sin ascensor)"
+    autocomplete: "address-line1"
+  mensaje:
+    etiqueta: "¿Qué hay que retirar?"
+    placeholder: "Ej.: un sofá de 3 plazas, una lavadora vieja y 10 bolsas de ropa…"
+jsonld: |
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.mudanzascsimon.es/punto-limpio/#servicio",
+        "name": "Retirada de muebles y punto limpio",
+        "serviceType": "Retirada de muebles y punto limpio",
+        "description": "Retirada de muebles viejos, electrodomésticos y enseres en Estepona y Málaga. Vaciado de pisos, locales y oficinas con traslado responsable al punto limpio.",
+        "url": "https://www.mudanzascsimon.es/punto-limpio/",
+        "image": "https://www.mudanzascsimon.es/fotos/og/og-punto-limpio.jpg",
+        "provider": {
+          "@type": "MovingCompany",
+          "@id": "https://www.mudanzascsimon.es/#empresa",
+          "name": "Mudanzas C.Simon",
+          "url": "https://www.mudanzascsimon.es/",
+          "telephone": "+34622115760"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Estepona"
+          },
+          {
+            "@type": "City",
+            "name": "Marbella"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Costa del Sol"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Provincia de Málaga"
+          },
+          {
+            "@type": "Country",
+            "name": "España"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.mudanzascsimon.es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Punto Limpio",
+            "item": "https://www.mudanzascsimon.es/punto-limpio/"
+          }
+        ]
+      }
+    ]
+  }
+---
+
+    
+    <section class="border-b border-line bg-surface py-16 md:py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold md:text-5xl">Punto limpio y vaciado</h1>
+            <p class="mx-auto mt-4 max-w-prose text-lg text-body">Nos encargamos de retirar tus muebles viejos, electrodomésticos y escombros de forma responsable y ecológica.</p>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-ink">Despreocúpate de lo que ya no sirve</h2>
+            <p class="mt-3 text-body max-w-2xl mx-auto">Ya sea por una mudanza, una reforma o limpieza general, nosotros recogemos, cargamos y reciclamos todo según la normativa vigente.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="card p-8">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                </div>
+                <h3 class="mb-2 text-lg font-semibold">100 % ecológico</h3>
+                <p class="text-body leading-relaxed">Clasificamos los residuos (madera, plástico, metal) para asegurar su correcto reciclaje en planta autorizada.</p>
+            </div>
+
+            <div class="card p-8">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <h3 class="mb-2 text-lg font-semibold">Sin esfuerzo</h3>
+                <p class="text-body leading-relaxed">Nosotros desarmamos, cargamos y bajamos los muebles, tengas o no ascensor. Tú no tienes que mover ni un dedo.</p>
+            </div>
+
+            <div class="card p-8">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="mb-2 text-lg font-semibold">Servicio legal</h3>
+                <p class="text-body leading-relaxed">Evita multas por dejar enseres en la vía pública. Te entregamos certificado de destrucción si lo necesitas.</p>
+            </div>
+
+            <div class="card p-8">
+                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
+                <h3 class="mb-2 text-lg font-semibold">Vaciado de pisos</h3>
+                <p class="text-body leading-relaxed">Dejamos tu inmueble, trastero o local comercial totalmente vacío y barrido en tiempo récord.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 border-t border-line py-16 md:py-24">
+        <h2 class="mb-12 text-3xl font-bold">Casos reales</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            
+            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm relative reveal-fade group">
+                <img src="/fotos/web/puntolimpio-furgoneta-640.webp" srcset="/fotos/web/puntolimpio-furgoneta-640.webp 640w, /fotos/web/puntolimpio-furgoneta-1200.webp 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" alt="Furgoneta cargada con cajas y bultos para su retirada" class="h-full w-full object-cover">
+            </div>
+
+            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm relative reveal-fade group">
+                <img src="/fotos/web/maderas-puntolimpio-640.webp" srcset="/fotos/web/maderas-puntolimpio-640.webp 640w, /fotos/web/maderas-puntolimpio-1200.webp 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" alt="Tablones de madera apilados en el camión para llevarlos al punto limpio" class="h-full w-full object-cover">
+            </div>
+
+            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm relative reveal-fade group">
+                <img src="/fotos/web/sillas-puntolimpio-640.webp" srcset="/fotos/web/sillas-puntolimpio-640.webp 640w, /fotos/web/sillas-puntolimpio-1200.webp 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" alt="Camión lleno de sillas de madera retiradas para el punto limpio" class="h-full w-full object-cover">
+            </div>
+
+            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm relative reveal-fade group">
+                <img src="/fotos/web/puntolimpio-pales-640.webp" srcset="/fotos/web/puntolimpio-pales-640.webp 640w, /fotos/web/puntolimpio-pales-1200.webp 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" width="640" height="853" loading="lazy" decoding="async" alt="Palés y muebles viejos cargados en el camión para su retirada" class="h-full w-full object-cover">
+            </div>
+
+            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm relative reveal-fade group">
+                <img src="/fotos/web/electrodomesticos-puntolimpio-640.webp" srcset="/fotos/web/electrodomesticos-puntolimpio-640.webp 640w, /fotos/web/electrodomesticos-puntolimpio-1200.webp 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" alt="Electrodomésticos y enseres retirados cargados en el camión hacia el punto limpio" class="h-full w-full object-cover">
+            </div>
+
+            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm relative reveal-fade group">
+                <img src="/fotos/web/mesas-puntolimpio-640.webp" srcset="/fotos/web/mesas-puntolimpio-640.webp 640w, /fotos/web/mesas-puntolimpio-1200.webp 1200w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" alt="Camión cargado con mesas, sillas y muebles viejos para el punto limpio" class="h-full w-full object-cover">
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-24">
+        
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">¿Cómo funciona la retirada?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 text-center">
+                    <div class="mx-auto mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display font-semibold text-white">1</div>
+                    <h3 class="mb-2 text-lg font-semibold">Envíanos una foto</h3>
+                    <p class="text-body leading-relaxed">
+                        Mándanos fotos de lo que hay que retirar por WhatsApp. Así te damos precio cerrado al momento.
+                    </p>
+                </div>
+                
+                <div class="card p-8 text-center">
+                    <div class="mx-auto mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display font-semibold text-white">2</div>
+                    <h3 class="mb-2 text-lg font-semibold">Recogida rápida</h3>
+                    <p class="text-body leading-relaxed">
+                        Acudimos el día acordado, desmontamos y cargamos todo rápidamente. Sin molestias para vecinos.
+                    </p>
+                </div>
+                
+                <div class="card p-8 text-center">
+                    <div class="mx-auto mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display font-semibold text-white">3</div>
+                    <h3 class="mb-2 text-lg font-semibold">Reciclaje</h3>
+                    <p class="text-body leading-relaxed">
+                        Llevamos todo al punto limpio autorizado para su tratamiento y reciclaje correcto.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contacto" class="btn-primary">Pedir presupuesto de retirada</a>
+            </div>
+        </div>
+    </section>

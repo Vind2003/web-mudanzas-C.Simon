@@ -1,0 +1,36 @@
+# Comprobaciones automáticas en cada cambio subido a GitHub y en cada pull request.
+# Si alguna falla, GitHub lo marca en rojo y avisa por correo.
+name: Calidad
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  comprobaciones:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Generar la web
+        run: npm run build
+
+      - name: Validar el HTML
+        run: npx html-validate "_site/**/*.html"
+
+      - name: Accesibilidad (pa11y con axe)
+        run: |
+          npx --yes http-server _site -p 8080 -s &
+          npx --yes wait-on http://localhost:8080
+          npx --yes pa11y-ci@3 --config .pa11yci.json
+
+      - name: Lighthouse (rendimiento, accesibilidad, buenas prácticas y SEO)
+        run: npx --yes @lhci/cli@0.14.x autorun

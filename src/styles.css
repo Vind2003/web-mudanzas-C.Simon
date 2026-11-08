@@ -19,6 +19,14 @@
 }
 
 @layer base {
+  /* Al saltar a una sección (#contacto…) deja hueco para la cabecera fija de escritorio */
+  html { scroll-padding-top: 1.5rem; }
+  @media (min-width: 768px) { html { scroll-padding-top: 6rem; } }
+
+  /* Foco del teclado bien visible en toda la web */
+  :focus-visible { outline: 2px solid theme('colors.primary.DEFAULT'); outline-offset: 2px; }
+  .bg-ink :focus-visible, footer :focus-visible { outline-color: theme('colors.accent.DEFAULT'); }
+
   body {
     @apply font-sans text-body bg-white antialiased;
     line-height: 1.65;
@@ -51,6 +59,12 @@
   }
   .field-label {
     @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+  .field[aria-invalid="true"] {
+    @apply border-red-600 ring-2 ring-red-600/20;
+  }
+  .field-error {
+    @apply mt-1.5 text-sm text-red-700;
   }
 }
 

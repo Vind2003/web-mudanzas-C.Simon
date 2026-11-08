@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  {#- Consentimiento de cookies: va primero y sin defer para decidir si se carga Analytics #}
+  <script src="/js/consent.js?v={{ assets.consent }}"></script>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/plus-jakarta-sans-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/styles.css?v={{ assets.css }}" />
+  {%- if heroImagen %}
+  <link rel="preload" as="image" href="/fotos/web/{{ heroImagen }}-640.webp" imagesrcset="/fotos/web/{{ heroImagen }}-640.webp 640w, /fotos/web/{{ heroImagen }}-1200.webp 1200w" imagesizes="(min-width: 768px) 50vw, 100vw" fetchpriority="high" />
+  {%- endif %}
+
+  <title>{{ title }}</title>
+  {%- if description %}
+  <meta name="description" content="{{ description }}" />
+  {%- endif %}
+  {%- if noindex %}
+  <meta name="robots" content="noindex, follow" />
+  {%- else %}
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="{{ site.nombre }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}/fotos/og/{{ ogImagen }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{ ogAlt }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:image" content="{{ site.url }}/fotos/og/{{ ogImagen }}" />
+  {%- endif %}
+  {%- if jsonld %}
+
+  <script type="application/ld+json">
+{{ jsonld | safe }}
+  </script>
+  {%- endif %}
+</head>
+
+<body class="flex min-h-screen flex-col pb-[4.5rem] md:pb-0">
+  <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[1100] rounded-lg bg-primary px-3 py-2 text-white" href="#main">Saltar al contenido</a>
+
+  {% include "partials/header.njk" %}
+
+  <main id="main" class="flex-grow">
+{{ content | safe }}
+    {%- if contacto %}
+    {% include "partials/contacto.njk" %}
+    {%- endif %}
+  </main>
+
+  {% include "partials/footer.njk" %}
+  {% include "partials/contacto-rapido.njk" %}
+
+  <script src="/js/site.js?v={{ assets.site }}" defer></script>
+</body>
+</html>

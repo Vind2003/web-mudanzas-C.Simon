@@ -1,0 +1,291 @@
+---
+layout: "layouts/base.njk"
+permalink: "/"
+title: "Mudanzas en Estepona y Málaga | Mudanzas C.Simon"
+description: "Empresa de mudanzas en Estepona y la Costa del Sol: desmontaje, embalaje premium, guardamuebles y punto limpio. Presupuesto cerrado, gratis y sin compromiso."
+ogImagen: "og-inicio.jpg"
+ogAlt: "Camión de mudanzas de Mudanzas C.Simon"
+nav: "inicio"
+heroImagen: "camion-lateral"
+waTexto: "Hola, me interesa un presupuesto para una mudanza"
+contacto:
+  titulo: "Pide tu presupuesto gratis"
+  textos:
+    - "Rellena el formulario y recibe una estimación en menos de 24 horas."
+  asunto: "Mudanza (portada)"
+  vivienda: true
+  extra:
+    id: "ruta"
+    nombre: "route"
+    etiqueta: "Origen y destino"
+    placeholder: "Ej.: de Estepona centro a Marbella"
+  mensaje:
+    etiqueta: "Detalles"
+    placeholder: "¿Hay ascensor? ¿Necesitas embalaje?"
+jsonld: |
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MovingCompany",
+        "@id": "https://www.mudanzascsimon.es/#empresa",
+        "name": "Mudanzas C.Simon",
+        "url": "https://www.mudanzascsimon.es/",
+        "logo": "https://www.mudanzascsimon.es/fotos/web/logo-168.png",
+        "image": "https://www.mudanzascsimon.es/fotos/og/og-inicio.jpg",
+        "description": "Empresa de mudanzas en Estepona y la Costa del Sol: desmontaje, embalaje premium, guardamuebles y punto limpio. Presupuesto cerrado, gratis y sin compromiso.",
+        "telephone": "+34622115760",
+        "email": "Mudanzas.c.simon@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Extremadura 12",
+          "addressLocality": "Estepona",
+          "addressRegion": "Málaga",
+          "addressCountry": "ES"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Estepona"
+          },
+          {
+            "@type": "City",
+            "name": "Marbella"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Costa del Sol"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Provincia de Málaga"
+          },
+          {
+            "@type": "Country",
+            "name": "España"
+          }
+        ],
+        "priceRange": "€€",
+        "sameAs": [
+          "https://www.facebook.com/mudanzas.c.simon",
+          "https://www.instagram.com/mudanzascsimon/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.mudanzascsimon.es/#web",
+        "url": "https://www.mudanzascsimon.es/",
+        "name": "Mudanzas C.Simon",
+        "inLanguage": "es",
+        "publisher": {
+          "@id": "https://www.mudanzascsimon.es/#empresa"
+        }
+      }
+    ]
+  }
+---
+
+
+    <section class="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 md:flex-row py-16 md:py-24">
+      <div class="md:w-1/2 z-10">
+        <p class="eyebrow mb-4">Servicio disponible en toda Málaga y España</p>
+        <h1 class="text-4xl font-bold leading-[1.1] md:text-5xl lg:text-[3.5rem]">
+          Tu mudanza en <span class="text-primary">Estepona</span>: Cero estrés, máxima seguridad.
+        </h1>
+        <p class="mt-6 max-w-lg text-lg leading-relaxed text-body">
+          Desmontaje, embalaje premium y transporte con la garantía de que tus recuerdos llegarán intactos. Gestionamos todo para que tú solo disfrutes de tu nuevo hogar.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#contacto" class="btn-primary">Solicitar presupuesto gratis</a>
+          <a href="tel:+34622115760" class="btn-secondary"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11.04 11.04 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg> Llamar ahora</a>
+        </div>
+        
+        <div class="mt-8 flex items-center gap-2 text-sm text-muted">
+          <span class="text-accent-text text-xl">★</span>
+          <p>Experiencia y profesionalidad garantizada</p>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2">
+        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface">
+            <img src="/fotos/web/camion-lateral-640.webp" srcset="/fotos/web/camion-lateral-640.webp 640w, /fotos/web/camion-lateral-1200.webp 1200w" sizes="(min-width: 768px) 50vw, 100vw" width="640" height="415" fetchpriority="high" 
+                 alt="Camión de Mudanzas C.Simon aparcado en la calle antes de una mudanza" 
+                 class="h-full w-full object-cover">
+            
+            <div class="absolute bottom-4 left-4 max-w-[220px] rounded-lg border border-line bg-white p-4 shadow-sm">
+              <p class="eyebrow">Compromiso</p>
+              <p class="mt-1 text-sm font-semibold text-ink">Cuidado total de tus muebles</p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="bg-surface py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="mb-12 text-center">
+          <p class="eyebrow">Servicios</p>
+          <h2 class="mt-2 text-3xl font-bold md:text-4xl">Soluciones integrales</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-body">No solo movemos cajas. Ofrecemos un servicio completo adaptado a las necesidades de la Costa del Sol.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <a href="/hogar-oficina/" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="/fotos/web/trabajador-montando-cama-640.webp" srcset="/fotos/web/trabajador-montando-cama-640.webp 640w, /fotos/web/trabajador-montando-cama-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="480" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Operario de Mudanzas C.Simon montando una litera" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
+              <h3 class="text-xl font-semibold text-white">Hogar y oficina</h3>
+              <p class="mt-1 text-sm text-slate-200">Desmontaje y montaje profesional.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          
+          <a href="/embalaje-premium/" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="/fotos/web/embalaje-640.webp" srcset="/fotos/web/embalaje-640.webp 640w, /fotos/web/embalaje-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Muebles protegidos con mantas acolchadas y film para la mudanza" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
+              <h3 class="text-xl font-semibold text-white">Embalaje premium</h3>
+              <p class="mt-1 text-sm text-slate-200">Materiales de alta protección para tus enseres.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <a href="/punto-limpio/" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="/fotos/web/furgoneta-por-delante-640.webp" srcset="/fotos/web/furgoneta-por-delante-640.webp 640w, /fotos/web/furgoneta-por-delante-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="853" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Camión de Mudanzas C.Simon aparcado frente a una vivienda" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
+              <h3 class="text-xl font-semibold text-white">Punto Limpio</h3>
+              <p class="mt-1 text-sm text-slate-200">Nos llevamos lo que ya no necesitas.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <a href="/guardamuebles/" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="/fotos/web/camion-dentro-ordenado-640.webp" srcset="/fotos/web/camion-dentro-ordenado-640.webp 640w, /fotos/web/camion-dentro-ordenado-1200.webp 800w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="640" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Muebles embalados y cajas ordenadas dentro del camión de mudanzas" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
+              <h3 class="text-xl font-semibold text-white">Guardamuebles</h3>
+              <p class="mt-1 text-sm text-slate-200">Espacios cuidados y organizados.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="ventajas" class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="eyebrow">Nuestra forma de trabajar</p>
+          <h2 class="mt-2 text-3xl font-bold md:text-4xl">¿Por qué elegirnos?</h2>
+          <p class="mb-8 mt-4 text-lg text-body">Entendemos que mudarse es más que mover cosas; es mover tu vida. Te ofrecemos tranquilidad.</p>
+          
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div>
+                <strong class="block text-lg font-semibold text-ink">Presupuesto cerrado</strong>
+                <span class="text-body">Lo que firmamos es lo que pagas. Sin sorpresas de última hora ni letra pequeña.</span>
+              </div>
+            </li>
+            
+            <li class="flex items-start gap-4">
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div>
+                <strong class="block text-lg font-semibold text-ink">Materiales de alta protección</strong>
+                <span class="text-body">Usamos mantas acolchadas, burbuja de triple capa y cajas reforzadas. Tus muebles viajan 100% protegidos.</span>
+              </div>
+            </li>
+            
+            <li class="flex items-start gap-4">
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div>
+                <strong class="block text-lg font-semibold text-ink">Flota adaptada</strong>
+                <span class="text-body">Camiones y furgonetas para todo tipo de transportes.</span>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-4">
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div>
+                <strong class="block text-lg font-semibold text-ink">Servicios especiales</strong>
+                <span class="text-body">Vaciado de viviendas, locales, trasteros, garajes, naves industriales y hoteles.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card p-8 text-center md:p-10">
+            <div class="mb-2 font-display text-5xl font-semibold text-primary">100%</div>
+            <p class="font-semibold text-ink">Satisfacción garantizada</p>
+            <p class="mt-4 leading-relaxed text-body">Si algo no sale como esperabas, respondemos de inmediato. Nuestra reputación en Estepona es nuestro mayor activo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios" class="overflow-hidden bg-surface py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-6 text-center relative">
+        <p class="eyebrow">Opiniones</p>
+        <h2 class="mb-12 mt-2 text-3xl font-bold md:text-4xl">Lo que dicen nuestros clientes</h2>
+
+        <div>
+
+          <div id="testimonials-wrapper" role="group" aria-roledescription="carrusel" aria-label="Opiniones de clientes" class="grid">
+            <article class="slide col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-300 opacity-100" data-index="0">
+              <div class="card w-full flex-1 p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Contraté el servicio completo para mudarme desde el puerto de Estepona al centro. El embalaje de la vajilla fue impecable. Ni una copa rota.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Laura González</cite>
+                <span class="block text-sm text-muted">Mudanza local</span></footer>
+              </div>
+            </article>
+            <article class="slide col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-300 opacity-0" data-index="1">
+              <div class="card w-full flex-1 p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Necesitaba guardar mis muebles durante dos meses por una reforma. El guardamuebles está limpísimo y muy seguro. Muy recomendados.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Carlos Martínez</cite>
+                <span class="block text-sm text-muted">Servicio de guardamuebles</span></footer>
+              </div>
+            </article>
+            <article class="slide col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-300 opacity-0" data-index="2">
+              <div class="card w-full flex-1 p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Puntualidad británica. Llegaron a las 8:00 en punto y a las 14:00 ya estaba todo montado en mi nueva casa en Cancelada. Eficiencia pura.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Ana Ruiz</cite>
+                <span class="block text-sm text-muted">Mudanza exprés</span></footer>
+              </div>
+            </article>
+            <article class="slide col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-300 opacity-0" data-index="3">
+              <div class="card w-full flex-1 p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Tenía un piano de cola y me daba terror moverlo. Trajeron una grúa elevadora y lo manejaron con un cuidado increíble. Profesionales de verdad.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">David Fenwick</cite>
+                <span class="block text-sm text-muted">Transporte especial</span></footer>
+              </div>
+            </article>
+            <article class="slide col-start-1 row-start-1 flex flex-col items-center transition-opacity duration-300 opacity-0" data-index="4">
+              <div class="card w-full flex-1 p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“El precio fue exactamente el del presupuesto inicial. Se encargaron de llevarse los muebles viejos al punto limpio. Un alivio total.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Sofía Mendez</cite>
+                <span class="block text-sm text-muted">Gestión integral</span></footer>
+              </div>
+            </article>
+          </div>
+        </div>
+          
+        <div class="mt-8 flex items-center justify-center gap-2">
+          <button type="button" id="prev-btn" aria-label="Opinión anterior" class="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink transition-colors hover:text-primary">
+            <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          <button type="button" class="dot h-6 w-6 rounded-full bg-slate-300 bg-clip-content p-1.5 transition-colors hover:bg-slate-400" data-to="0" aria-label="Ver opinión 1"></button>
+          <button type="button" class="dot h-6 w-6 rounded-full bg-slate-300 bg-clip-content p-1.5 transition-colors hover:bg-slate-400" data-to="1" aria-label="Ver opinión 2"></button>
+          <button type="button" class="dot h-6 w-6 rounded-full bg-slate-300 bg-clip-content p-1.5 transition-colors hover:bg-slate-400" data-to="2" aria-label="Ver opinión 3"></button>
+          <button type="button" class="dot h-6 w-6 rounded-full bg-slate-300 bg-clip-content p-1.5 transition-colors hover:bg-slate-400" data-to="3" aria-label="Ver opinión 4"></button>
+          <button type="button" class="dot h-6 w-6 rounded-full bg-slate-300 bg-clip-content p-1.5 transition-colors hover:bg-slate-400" data-to="4" aria-label="Ver opinión 5"></button>
+          <button type="button" id="next-btn" aria-label="Opinión siguiente" class="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink transition-colors hover:text-primary">
+            <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+      </div>
+    </section>

@@ -1,16 +1,19 @@
 """Genera las imágenes optimizadas de la web a partir de las fotos originales.
 
 Uso:  python scripts/optimizar-imagenes.py
-- fotos/*.jpg|jpeg  ->  fotos/web/<nombre>-640.webp y <nombre>-1200.webp
-- fotos/Logo.jpg    ->  logo para la cabecera, favicons e icono de Apple
+- fotos/originales/*.jpg|jpeg  ->  fotos/web/<nombre>-640.webp y <nombre>-1200.webp
+- fotos/originales/Logo.jpg    ->  logo de la cabecera y favicons (en public/)
+- Imágenes para compartir (Open Graph)  ->  fotos/og/
 Los originales no se tocan. Al añadir una foto nueva, basta con volver a ejecutarlo.
 """
 from pathlib import Path
 from PIL import Image, ImageOps
 
 RAIZ = Path(__file__).resolve().parent.parent
-ORIGEN = RAIZ / "fotos"
-DESTINO = ORIGEN / "web"
+FOTOS = RAIZ / "fotos"
+ORIGEN = FOTOS / "originales"   # fotos originales (no se publican)
+DESTINO = FOTOS / "web"
+PUBLICO = RAIZ / "public"       # archivos que van a la raíz de la web
 ANCHOS = (640, 1200)
 CALIDAD = 78
 
@@ -50,14 +53,14 @@ def logo():
     lado = img.width
     arriba = 100
     cuadrado = img.crop((0, arriba, lado, arriba + lado))
-    cuadrado.resize((180, 180), Image.LANCZOS).save(RAIZ / "apple-touch-icon.png", optimize=True)
-    cuadrado.resize((32, 32), Image.LANCZOS).save(RAIZ / "favicon-32.png", optimize=True)
-    cuadrado.save(RAIZ / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+    cuadrado.resize((180, 180), Image.LANCZOS).save(PUBLICO / "apple-touch-icon.png", optimize=True)
+    cuadrado.resize((32, 32), Image.LANCZOS).save(PUBLICO / "favicon-32.png", optimize=True)
+    cuadrado.save(PUBLICO / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
     print("favicons generados")
 
 
 OG = {  # imagen para compartir (WhatsApp, Facebook...) de cada página
-    "inicio": "Dos-Camiones.jpg",
+    "inicio": "Camion-Lateral.jpg",
     "hogar-oficina": "Trabajador-Montando-Cama.jpg",
     "embalaje": "Embalaje-MueblesGrandes.jpg",
     "guardamuebles": "Colchon-Guardamueble.jpeg",
@@ -66,7 +69,7 @@ OG = {  # imagen para compartir (WhatsApp, Facebook...) de cada página
 
 
 def og():
-    carpeta = ORIGEN / "og"
+    carpeta = FOTOS / "og"
     carpeta.mkdir(exist_ok=True)
     for nombre, foto in OG.items():
         img = abrir(ORIGEN / foto)

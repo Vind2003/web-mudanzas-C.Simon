@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe"],
+    "timeout": 30000,
+    "chromeLaunchConfig": { "args": ["--no-sandbox"] }
+  },
+  "urls": [
+    "http://localhost:8080/",
+    "http://localhost:8080/hogar-oficina/",
+    "http://localhost:8080/embalaje-premium/",
+    "http://localhost:8080/guardamuebles/",
+    "http://localhost:8080/punto-limpio/",
+    "http://localhost:8080/aviso-legal/",
+    "http://localhost:8080/politica-privacidad/",
+    "http://localhost:8080/politica-cookies/",
+    "http://localhost:8080/404.html"
+  ]
+}
