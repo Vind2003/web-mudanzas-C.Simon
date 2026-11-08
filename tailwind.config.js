@@ -9,7 +9,10 @@ module.exports = {
           darkOrange: '#ea580c',
           blue: '#1e3a8a',
           lightBlue: '#eff6ff',
-          bgBlue: '#f0f4f8'
+          bgBlue: '#f0f4f8',
+          // Naranja oscuro para texto y botones: contraste AA con blanco (5.2:1)
+          cta: '#c2410c',
+          ctaHover: '#9a3412'
         }
       },
       fontFamily: {

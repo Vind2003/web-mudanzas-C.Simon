@@ -36,9 +36,13 @@
   var nextBtn = document.getElementById('next-btn');
   if (slides.length && prevBtn && nextBtn) {
     var dots = document.querySelectorAll('.dot');
+    var carousel = document.getElementById('testimonios');
     var current = 0;
     var intervalId;
     var total = slides.length;
+    var paused = false;
+    // Sin avance automático si el usuario pide menos movimiento
+    var autoplay = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
     function showSlide(index) {
       slides.forEach(function (s, i) {
@@ -47,25 +51,43 @@
         s.style.zIndex = active ? '10' : '0';
         s.style.pointerEvents = active ? 'auto' : 'none';
         s.style.transform = active ? 'translateX(0)' : (i > index ? 'translateX(20px)' : 'translateX(-20px)');
+        // Las opiniones ocultas no se leen ni reciben foco
+        s.setAttribute('aria-hidden', active ? 'false' : 'true');
+        if (active) { s.removeAttribute('inert'); } else { s.setAttribute('inert', ''); }
       });
       dots.forEach(function (d, i) {
         var active = i === index;
         d.classList.toggle('bg-slate-300', !active);
         d.classList.toggle('bg-brand-orange', active);
         d.classList.toggle('scale-125', active);
+        if (active) { d.setAttribute('aria-current', 'true'); } else { d.removeAttribute('aria-current'); }
       });
       current = index;
     }
 
     function nextSlide() { showSlide((current + 1) % total); }
     function prevSlide() { showSlide((current - 1 + total) % total); }
-    function resetInterval() { clearInterval(intervalId); intervalId = setInterval(nextSlide, 6000); }
+    function resetInterval() {
+      clearInterval(intervalId);
+      if (autoplay && !paused) { intervalId = setInterval(nextSlide, 6000); }
+    }
+    function setPaused(value) { paused = value; resetInterval(); }
 
     nextBtn.addEventListener('click', function () { nextSlide(); resetInterval(); });
     prevBtn.addEventListener('click', function () { prevSlide(); resetInterval(); });
     dots.forEach(function (d, i) {
       d.addEventListener('click', function () { showSlide(i); resetInterval(); });
     });
+
+    // Pausa mientras el ratón o el foco del teclado están en el carrusel
+    if (carousel) {
+      carousel.addEventListener('mouseenter', function () { setPaused(true); });
+      carousel.addEventListener('mouseleave', function () { setPaused(false); });
+      carousel.addEventListener('focusin', function () { setPaused(true); });
+      carousel.addEventListener('focusout', function (e) {
+        if (!carousel.contains(e.relatedTarget)) { setPaused(false); }
+      });
+    }
 
     showSlide(0);
     resetInterval();
