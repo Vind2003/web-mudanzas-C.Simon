@@ -56,6 +56,34 @@ def logo():
     print("favicons generados")
 
 
+OG = {  # imagen para compartir (WhatsApp, Facebook...) de cada página
+    "inicio": "Dos-Camiones.jpg",
+    "hogar-oficina": "Trabajador-Montando-Cama.jpg",
+    "embalaje": "Embalaje-MueblesGrandes.jpg",
+    "guardamuebles": "Colchon-Guardamueble.jpeg",
+    "punto-limpio": "PuntoLimpio-furgoneta.jpg",
+}
+
+
+def og():
+    carpeta = ORIGEN / "og"
+    carpeta.mkdir(exist_ok=True)
+    for nombre, foto in OG.items():
+        img = abrir(ORIGEN / foto)
+        # Recorte centrado a 1200x630 (proporción 1.91:1)
+        ratio = 1200 / 630
+        if img.width / img.height > ratio:
+            w = round(img.height * ratio)
+            caja = ((img.width - w) // 2, 0, (img.width + w) // 2, img.height)
+        else:
+            h = round(img.width / ratio)
+            caja = (0, (img.height - h) // 2, img.width, (img.height + h) // 2)
+        salida = carpeta / f"og-{nombre}.jpg"
+        img.crop(caja).resize((1200, 630), Image.LANCZOS).save(salida, "JPEG", quality=82, optimize=True, progressive=True)
+        print(f"{salida.relative_to(RAIZ)}  {salida.stat().st_size // 1024} KB")
+
+
 if __name__ == "__main__":
     fotos()
     logo()
+    og()
