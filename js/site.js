@@ -56,12 +56,12 @@
     banner.setAttribute('aria-label', 'Aviso de cookies');
     banner.className = 'fixed inset-x-0 bottom-0 z-[1000] p-4';
     banner.innerHTML =
-      '<div class="max-w-3xl mx-auto bg-white text-slate-700 rounded-xl shadow-2xl border border-gray-200 p-5 md:flex md:items-center md:gap-6">' +
+      '<div class="max-w-3xl mx-auto bg-white text-body rounded-xl shadow-md border border-line p-5 md:flex md:items-center md:gap-6">' +
         '<p class="text-sm leading-relaxed">Usamos cookies de análisis de Google Analytics para saber cuántas personas visitan la web y mejorarla. ' +
-        'Solo se activan si las aceptas. <a href="PoliticaCookies.html" class="underline text-brand-cta hover:text-brand-ctaHover">Más información</a></p>' +
+        'Solo se activan si las aceptas. <a href="PoliticaCookies.html" class="underline text-primary hover:text-primary-dark">Más información</a></p>' +
         '<div class="mt-4 md:mt-0 flex gap-3 shrink-0">' +
-          '<button type="button" data-consent="rechazadas" class="flex-1 md:flex-none px-5 py-2.5 rounded-md border-2 border-brand-blue text-brand-blue font-bold hover:bg-brand-lightBlue transition-colors">Rechazar</button>' +
-          '<button type="button" data-consent="aceptadas" class="flex-1 md:flex-none px-5 py-2.5 rounded-md border-2 border-brand-blue bg-brand-blue text-white font-bold hover:bg-slate-900 hover:border-slate-900 transition-colors">Aceptar</button>' +
+          '<button type="button" data-consent="rechazadas" class="btn-secondary flex-1 md:flex-none px-5 py-2.5">Rechazar</button>' +
+          '<button type="button" data-consent="aceptadas" class="btn-primary flex-1 md:flex-none px-5 py-2.5">Aceptar</button>' +
         '</div>' +
       '</div>';
     banner.querySelectorAll('[data-consent]').forEach(function (btn) {
@@ -139,7 +139,7 @@
       dots.forEach(function (d, i) {
         var active = i === index;
         d.classList.toggle('bg-slate-300', !active);
-        d.classList.toggle('bg-brand-orange', active);
+        d.classList.toggle('bg-primary', active);
         d.classList.toggle('scale-125', active);
         if (active) { d.setAttribute('aria-current', 'true'); } else { d.removeAttribute('aria-current'); }
       });

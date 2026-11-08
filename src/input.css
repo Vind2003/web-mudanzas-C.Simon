@@ -2,20 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos propios del sitio (antes repetidos en cada HTML) */
+/* Fuentes alojadas en la propia web (variables: un archivo cubre todos los pesos) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/inter-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('../fonts/plus-jakarta-sans-var.woff2') format('woff2');
+}
+
 @layer base {
-  body { font-family: 'Inter', system-ui, sans-serif; }
+  body {
+    @apply font-sans text-body bg-white antialiased;
+    line-height: 1.65;
+  }
+  h1, h2, h3 {
+    @apply font-display text-ink tracking-tight;
+    line-height: 1.15;
+  }
+}
+
+@layer components {
+  /* Etiqueta pequeña sobre los títulos de sección */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.08em] text-accent-text;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-semibold transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark;
+  }
+  .btn-secondary {
+    @apply btn border border-slate-300 text-ink hover:bg-surface;
+  }
+  .card {
+    @apply rounded-xl border border-line bg-white shadow-sm;
+  }
+  .field {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20;
+  }
+  .field-label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
 }
 
 /* Aparición suave: solo se oculta si el JS está activo (clase .js en <html>),
    así las imágenes se ven aunque el script falle. */
-.js .reveal-fade { opacity: 0; transition: opacity 1.5s ease-out; }
+.js .reveal-fade { opacity: 0; transition: opacity 0.8s ease-out; }
 .js .reveal-fade.reveal-visible { opacity: 1; }
 
 /* Respeta a quien pide menos animación en su sistema */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-bounce-slow { animation: none; }
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;

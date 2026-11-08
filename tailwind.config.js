@@ -4,23 +4,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          orange: '#f97316',
-          darkOrange: '#ea580c',
-          blue: '#1e3a8a',
-          lightBlue: '#eff6ff',
-          bgBlue: '#f0f4f8',
-          // Naranja oscuro para texto y botones: contraste AA con blanco (5.2:1)
-          cta: '#c2410c',
-          ctaHover: '#9a3412'
-        }
+        // Paleta del rediseño (azul y naranja del logo)
+        ink: '#0F1B2D',          // títulos y fondos oscuros
+        body: '#334155',         // texto principal
+        muted: '#64748B',        // texto secundario
+        surface: '#F6F8FB',      // fondo alterno
+        line: '#E3E8EF',         // bordes
+        primary: {
+          DEFAULT: '#0B4A9E',    // botones y enlaces (8,4:1 con blanco)
+          dark: '#083A7D',       // hover
+        },
+        accent: {
+          DEFAULT: '#F28C28',    // detalles y fondos oscuros
+          text: '#C2410C',       // texto naranja sobre blanco (5,2:1)
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
-      animation: {
-        'bounce-slow': 'bounce 3s infinite',
-      }
+      maxWidth: {
+        prose: '65ch',
+      },
     }
   }
 };

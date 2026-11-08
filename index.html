@@ -31,9 +31,8 @@
   <link rel="icon" href="favicon.ico" sizes="48x48" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/plus-jakarta-sans-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preload" as="image" href="fotos/web/dos-camiones-640.webp" imagesrcset="fotos/web/dos-camiones-640.webp 640w, fotos/web/dos-camiones-1200.webp 1200w" imagesizes="(min-width: 768px) 50vw, 100vw" fetchpriority="high" />
   
@@ -122,241 +121,236 @@
 
 </head>
 
-<body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen relative">
-  <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-brand-cta text-white px-3 py-2 rounded shadow-lg transition" href="#main">Saltar al contenido</a>
+<body class="flex min-h-screen flex-col">
+  <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-primary text-white px-3 py-2 rounded-lg transition" href="#main">Saltar al contenido</a>
 
   <a href="https://wa.me/34622115760?text=Hola,%20me%20interesa%20un%20presupuesto%20para%20mudanza" 
      target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp (se abre en una pestaña nueva)"
-     class="fixed bottom-6 right-6 z-[999] flex items-center gap-2 group hover:-translate-y-1 transition-transform duration-300">
-    <span class="bg-white text-slate-800 px-3 py-1 rounded-lg shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity hidden md:block">
+     class="group fixed bottom-6 right-6 z-[999] flex items-center gap-2">
+    <span class="hidden rounded-lg border border-line bg-white px-3 py-1 text-sm font-medium text-ink opacity-0 shadow-sm transition-opacity group-hover:opacity-100 md:block">
       ¡Escríbenos!
     </span>
-    <div class="bg-[#25D366] w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-green-900/20 animate-bounce-slow">
+    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-sm">
       <svg aria-hidden="true" class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
       </svg>
     </div>
   </a>
 
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+  <header class="sticky top-0 z-50 border-b border-line bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
       
       <a href="index.html" class="flex items-center gap-4 group self-start md:self-auto">
-        <img src="fotos/web/logo-168.webp" width="112" height="168" alt="Logotipo de Mudanzas C.Simon" class="h-14 w-auto object-contain rounded-md shadow-sm">
+        <img src="fotos/web/logo-168.webp" width="112" height="168" alt="Logotipo de Mudanzas C.Simon" class="h-12 w-auto rounded-lg">
         
         <div>
-          <span class="block text-xl font-bold text-brand-blue leading-tight">Mudanzas C.Simon</span>
-          <span class="block text-xs text-gray-500 font-medium tracking-wide">Costa del Sol</span>
+          <span class="block font-display text-lg font-semibold leading-tight text-ink">Mudanzas C.Simon</span>
+          <span class="block text-xs text-muted">Costa del Sol</span>
         </div>
       </a>
 
-      <nav aria-label="Principal" class="flex flex-wrap gap-4 md:gap-6 text-sm font-bold text-slate-600 justify-center">
-        <a href="#servicios" class="hover:text-brand-cta transition-colors">Servicios</a>
-        <a href="#ventajas" class="hover:text-brand-cta transition-colors">¿Por qué elegirnos?</a>
-        <a href="#testimonios" class="hover:text-brand-cta transition-colors">Opiniones</a>
-        <a href="#contacto" class="text-white bg-brand-blue px-5 py-2.5 rounded-md shadow hover:bg-slate-900 transition-colors">Pedir Presupuesto</a>
+      <nav aria-label="Principal" class="flex flex-wrap gap-4 md:gap-6 text-sm font-medium text-body justify-center items-center">
+        <a href="#servicios" class="hover:text-primary transition-colors">Servicios</a>
+        <a href="#ventajas" class="hover:text-primary transition-colors">¿Por qué elegirnos?</a>
+        <a href="#testimonios" class="hover:text-primary transition-colors">Opiniones</a>
+        <a href="#contacto" class="btn-primary px-4 py-2">Pedir presupuesto</a>
       </nav>
     </div>
   </header>
 
   <main id="main" class="flex-grow">
 
-    <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+    <section class="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 md:flex-row py-16 md:py-24">
       <div class="md:w-1/2 z-10">
-        <div class="inline-block px-3 py-1 bg-blue-100 text-brand-blue text-xs font-bold rounded-full mb-4 tracking-wide uppercase">
-          Servicio disponible en toda Málaga y España
-        </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-brand-blue">
-          Tu mudanza en <span class="text-brand-cta">Estepona</span>: Cero estrés, máxima seguridad.
+        <p class="eyebrow mb-4">Servicio disponible en toda Málaga y España</p>
+        <h1 class="text-4xl font-bold leading-[1.1] md:text-5xl lg:text-[3.5rem]">
+          Tu mudanza en <span class="text-primary">Estepona</span>: Cero estrés, máxima seguridad.
         </h1>
-        <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-lg">
+        <p class="mt-6 max-w-lg text-lg leading-relaxed text-body">
           Desmontaje, embalaje premium y transporte con la garantía de que tus recuerdos llegarán intactos. Gestionamos todo para que tú solo disfrutes de tu nuevo hogar.
         </p>
 
         <div class="mt-8 flex flex-col sm:flex-row gap-4">
-          <a href="#contacto" class="bg-brand-cta text-white text-center px-8 py-4 rounded-md font-bold shadow-lg shadow-orange-200 hover:bg-brand-ctaHover transition-all transform hover:-translate-y-1">
-            Solicitar presupuesto gratis
-          </a>
-          <a href="tel:+34622115760" class="flex items-center justify-center px-8 py-4 rounded-md border border-slate-300 text-brand-blue font-bold hover:bg-brand-lightBlue transition-colors gap-2">
-            <span aria-hidden="true">📞</span> Llamar ahora
-          </a>
+          <a href="#contacto" class="btn-primary">Solicitar presupuesto gratis</a>
+          <a href="tel:+34622115760" class="btn-secondary"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11.04 11.04 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg> Llamar ahora</a>
         </div>
         
-        <div class="mt-8 flex items-center gap-2 text-sm text-gray-500 font-medium">
-          <span class="text-brand-cta text-xl">★</span>
+        <div class="mt-8 flex items-center gap-2 text-sm text-muted">
+          <span class="text-accent-text text-xl">★</span>
           <p>Experiencia y profesionalidad garantizada</p>
         </div>
       </div>
 
-      <div class="md:w-1/2 w-full relative group">
-        <div class="absolute -inset-4 bg-brand-orange/20 rounded-full blur-3xl opacity-50 -z-10"></div>
-        <div class="w-full aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20 relative">
+      <div class="w-full md:w-1/2">
+        <div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-surface">
             <img src="fotos/web/dos-camiones-640.webp" srcset="fotos/web/dos-camiones-640.webp 640w, fotos/web/dos-camiones-1200.webp 1200w" sizes="(min-width: 768px) 50vw, 100vw" width="640" height="480" fetchpriority="high" 
                  alt="Camión de Mudanzas C.Simon aparcado en la calle antes de una mudanza" 
-                 class="object-cover w-full h-full transition-transform duration-700 ease-in-out group-hover:scale-110">
+                 class="h-full w-full object-cover">
             
-            <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-[200px] border-l-4 border-brand-orange">
-              <p class="text-xs font-bold text-gray-600 uppercase">Compromiso</p>
-              <p class="text-brand-blue font-bold text-sm">Cuidado total de tus muebles</p>
+            <div class="absolute bottom-4 left-4 max-w-[220px] rounded-lg border border-line bg-white p-4 shadow-sm">
+              <p class="eyebrow">Compromiso</p>
+              <p class="mt-1 text-sm font-semibold text-ink">Cuidado total de tus muebles</p>
             </div>
         </div>
       </div>
     </section>
 
-    <section id="servicios" class="bg-white py-20">
-      <div class="max-w-[1400px] mx-auto px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-brand-blue">Soluciones Integrales</h2>
-          <p class="mt-3 text-slate-500 max-w-2xl mx-auto">No solo movemos cajas. Ofrecemos un servicio completo adaptado a las necesidades de la Costa del Sol.</p>
+    <section id="servicios" class="bg-surface py-16 md:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="mb-12 text-center">
+          <p class="eyebrow">Servicios</p>
+          <h2 class="mt-2 text-3xl font-bold md:text-4xl">Soluciones integrales</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-body">No solo movemos cajas. Ofrecemos un servicio completo adaptado a las necesidades de la Costa del Sol.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="hogar-oficina.html" class="group relative h-80 w-full overflow-hidden rounded-xl block shadow-lg hover:shadow-2xl transition-all">
-            <img src="fotos/web/trabajador-montando-cama-640.webp" srcset="fotos/web/trabajador-montando-cama-640.webp 640w, fotos/web/trabajador-montando-cama-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="480" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Operario de Mudanzas C.Simon montando una litera" />
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-brand-blue/50 to-transparent"></div>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <a href="hogar-oficina.html" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="fotos/web/trabajador-montando-cama-640.webp" srcset="fotos/web/trabajador-montando-cama-640.webp 640w, fotos/web/trabajador-montando-cama-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="480" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Operario de Mudanzas C.Simon montando una litera" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
-              <h3 class="text-white text-xl font-bold mb-1">Hogar y Oficina</h3>
-              <p class="text-blue-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Desmontaje y montaje profesional.</p>
-              <div class="mt-3 h-1 w-12 bg-brand-orange rounded-full group-hover:w-full transition-all duration-500"></div>
+              <h3 class="text-xl font-semibold text-white">Hogar y Oficina</h3>
+              <p class="mt-1 text-sm text-slate-200">Desmontaje y montaje profesional.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
             </div>
           </a>
           
-          <a href="Embalaje-Premium.html" class="group relative h-80 w-full overflow-hidden rounded-xl block shadow-lg hover:shadow-2xl transition-all">
-            <img src="fotos/web/embalaje-640.webp" srcset="fotos/web/embalaje-640.webp 640w, fotos/web/embalaje-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Muebles protegidos con mantas acolchadas y film para la mudanza" />
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-brand-blue/50 to-transparent"></div>
+          <a href="Embalaje-Premium.html" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="fotos/web/embalaje-640.webp" srcset="fotos/web/embalaje-640.webp 640w, fotos/web/embalaje-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="850" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Muebles protegidos con mantas acolchadas y film para la mudanza" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
-              <h3 class="text-white text-xl font-bold mb-1">Embalaje Premium</h3>
-              <p class="text-blue-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Materiales de alta protección para tus enseres.</p>
-              <div class="mt-3 h-1 w-12 bg-brand-orange rounded-full group-hover:w-full transition-all duration-500"></div>
+              <h3 class="text-xl font-semibold text-white">Embalaje Premium</h3>
+              <p class="mt-1 text-sm text-slate-200">Materiales de alta protección para tus enseres.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
             </div>
           </a>
 
-          <a href="Punto-Limpio.html" class="group relative h-80 w-full overflow-hidden rounded-xl block shadow-lg hover:shadow-2xl transition-all">
-            <img src="fotos/web/furgoneta-por-delante-640.webp" srcset="fotos/web/furgoneta-por-delante-640.webp 640w, fotos/web/furgoneta-por-delante-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="853" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Camión de Mudanzas C.Simon aparcado frente a una vivienda" />
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-brand-blue/50 to-transparent"></div>
+          <a href="Punto-Limpio.html" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="fotos/web/furgoneta-por-delante-640.webp" srcset="fotos/web/furgoneta-por-delante-640.webp 640w, fotos/web/furgoneta-por-delante-1200.webp 1200w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="853" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Camión de Mudanzas C.Simon aparcado frente a una vivienda" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
-              <h3 class="text-white text-xl font-bold mb-1">Punto Limpio</h3>
-              <p class="text-blue-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Nos llevamos lo que ya no necesitas.</p>
-              <div class="mt-3 h-1 w-12 bg-brand-orange rounded-full group-hover:w-full transition-all duration-500"></div>
+              <h3 class="text-xl font-semibold text-white">Punto Limpio</h3>
+              <p class="mt-1 text-sm text-slate-200">Nos llevamos lo que ya no necesitas.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
             </div>
           </a>
 
-          <a href="Guardamuebles.html" class="group relative h-80 w-full overflow-hidden rounded-xl block shadow-lg hover:shadow-2xl transition-all">
-            <img src="fotos/web/camion-dentro-ordenado-640.webp" srcset="fotos/web/camion-dentro-ordenado-640.webp 640w, fotos/web/camion-dentro-ordenado-1200.webp 800w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="640" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Muebles embalados y cajas ordenadas dentro del camión de mudanzas" />
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-brand-blue/50 to-transparent"></div>
+          <a href="Guardamuebles.html" class="group relative block h-80 overflow-hidden rounded-xl">
+            <img src="fotos/web/camion-dentro-ordenado-640.webp" srcset="fotos/web/camion-dentro-ordenado-640.webp 640w, fotos/web/camion-dentro-ordenado-1200.webp 800w" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" width="640" height="640" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" alt="Muebles embalados y cajas ordenadas dentro del camión de mudanzas" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-6 text-left z-10 w-full">
-              <h3 class="text-white text-xl font-bold mb-1">Guardamuebles</h3>
-              <p class="text-blue-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">Espacios cuidados y organizados.</p>
-              <div class="mt-3 h-1 w-12 bg-brand-orange rounded-full group-hover:w-full transition-all duration-500"></div>
+              <h3 class="text-xl font-semibold text-white">Guardamuebles</h3>
+              <p class="mt-1 text-sm text-slate-200">Espacios cuidados y organizados.</p>
+              <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent group-hover:underline">Ver servicio <span aria-hidden="true">→</span></span>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <section id="ventajas" class="py-20 bg-brand-lightBlue/30">
+    <section id="ventajas" class="py-16 md:py-24">
       <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-3xl font-bold text-brand-blue">¿Por qué elegirnos?</h2>
-          <p class="mt-4 text-slate-600 mb-8 text-lg">Entendemos que mudarse es más que mover cosas; es mover tu vida. Te ofrecemos tranquilidad.</p>
+          <p class="eyebrow">Nuestra forma de trabajar</p>
+          <h2 class="mt-2 text-3xl font-bold md:text-4xl">¿Por qué elegirnos?</h2>
+          <p class="mb-8 mt-4 text-lg text-body">Entendemos que mudarse es más que mover cosas; es mover tu vida. Te ofrecemos tranquilidad.</p>
           
           <ul class="space-y-6">
             <li class="flex items-start gap-4">
-              <div class="bg-brand-blue text-white rounded-full p-1.5 mt-1 shrink-0"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
               <div>
-                <strong class="block text-slate-900 text-lg">Presupuesto Cerrado</strong>
-                <span class="text-slate-600">Lo que firmamos es lo que pagas. Sin sorpresas de última hora ni letra pequeña.</span>
+                <strong class="block text-lg font-semibold text-ink">Presupuesto Cerrado</strong>
+                <span class="text-body">Lo que firmamos es lo que pagas. Sin sorpresas de última hora ni letra pequeña.</span>
               </div>
             </li>
             
             <li class="flex items-start gap-4">
-              <div class="bg-brand-blue text-white rounded-full p-1.5 mt-1 shrink-0"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
               <div>
-                <strong class="block text-slate-900 text-lg">Materiales de Alta Protección</strong>
-                <span class="text-slate-600">Usamos mantas acolchadas, burbuja de triple capa y cajas reforzadas. Tus muebles viajan 100% protegidos.</span>
+                <strong class="block text-lg font-semibold text-ink">Materiales de Alta Protección</strong>
+                <span class="text-body">Usamos mantas acolchadas, burbuja de triple capa y cajas reforzadas. Tus muebles viajan 100% protegidos.</span>
               </div>
             </li>
             
             <li class="flex items-start gap-4">
-              <div class="bg-brand-blue text-white rounded-full p-1.5 mt-1 shrink-0"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
               <div>
-                <strong class="block text-slate-900 text-lg">Flota Adaptada</strong>
-                <span class="text-slate-600">Camiones y furgonetas para todo tipo de transportes.</span>
+                <strong class="block text-lg font-semibold text-ink">Flota Adaptada</strong>
+                <span class="text-body">Camiones y furgonetas para todo tipo de transportes.</span>
               </div>
             </li>
 
             <li class="flex items-start gap-4">
-              <div class="bg-brand-blue text-white rounded-full p-1.5 mt-1 shrink-0"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
+              <div class="mt-1 shrink-0 rounded-full bg-primary/10 p-1.5 text-primary"><svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg></div>
               <div>
-                <strong class="block text-slate-900 text-lg">Servicios Especiales</strong>
-                <span class="text-slate-600">Vaciado de viviendas, locales, trasteros, garajes, naves industriales y hoteles.</span>
+                <strong class="block text-lg font-semibold text-ink">Servicios Especiales</strong>
+                <span class="text-body">Vaciado de viviendas, locales, trasteros, garajes, naves industriales y hoteles.</span>
               </div>
             </li>
           </ul>
         </div>
 
-        <div class="bg-white p-10 rounded-2xl shadow-xl border border-blue-50 text-center relative overflow-hidden transition-transform hover:-translate-y-2 duration-300">
-            <div class="absolute top-0 left-0 w-full h-2 bg-brand-orange"></div>
-            <div class="text-6xl font-extrabold text-brand-blue mb-2">100%</div>
-            <p class="font-bold text-slate-800 uppercase tracking-wide text-sm">Satisfacción Garantizada</p>
-            <p class="text-slate-500 mt-4 leading-relaxed">Si algo no sale como esperabas, respondemos de inmediato. Nuestra reputación en Estepona es nuestro mayor activo.</p>
+        <div class="card p-8 text-center md:p-10">
+            <div class="mb-2 font-display text-5xl font-semibold text-primary">100%</div>
+            <p class="font-semibold text-ink">Satisfacción Garantizada</p>
+            <p class="mt-4 leading-relaxed text-body">Si algo no sale como esperabas, respondemos de inmediato. Nuestra reputación en Estepona es nuestro mayor activo.</p>
         </div>
       </div>
     </section>
 
-    <section id="testimonios" class="bg-white py-20 overflow-hidden">
+    <section id="testimonios" class="overflow-hidden bg-surface py-16 md:py-24">
       <div class="max-w-4xl mx-auto px-6 text-center relative">
-        <h2 class="text-3xl font-bold text-brand-blue mb-12">Lo que dicen nuestros clientes</h2>
+        <p class="eyebrow">Opiniones</p>
+        <h2 class="mb-12 mt-2 text-3xl font-bold md:text-4xl">Lo que dicen nuestros clientes</h2>
 
         <div class="relative px-8 md:px-12">
-          <button type="button" id="prev-btn" aria-label="Opinión anterior" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white border border-gray-200 text-brand-blue hover:text-brand-cta p-2 rounded-full shadow-md hover:shadow-lg transition">
+          <button type="button" id="prev-btn" aria-label="Opinión anterior" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 rounded-full border border-line bg-white p-2 text-ink transition-colors hover:text-primary">
             <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
           </button>
 
           <div id="testimonials-wrapper" aria-roledescription="carrusel" aria-label="Opiniones de clientes" class="relative min-h-[220px]">
-            <article class="slide absolute inset-0 transition-all duration-500 ease-in-out opacity-100 scale-100 flex flex-col items-center gap-4" data-index="0">
-              <div class="bg-brand-lightBlue p-8 rounded-2xl border border-blue-100 w-full shadow-sm">
-                <div role="img" aria-label="5 de 5 estrellas" class="flex text-brand-cta gap-1 justify-center mb-4">★★★★★</div>
-                <blockquote class="text-lg text-slate-700 italic font-medium leading-relaxed"><p>“Contraté el servicio completo para mudarme desde el puerto de Estepona al centro. El embalaje de la vajilla fue impecable. Ni una copa rota.”</p></blockquote>
-                <footer class="mt-6"><cite class="block not-italic font-bold text-brand-blue">Laura González</cite>
-                <span class="block text-xs text-slate-600">Mudanza Local</span></footer>
+            <article class="slide absolute inset-0 transition-colors opacity-100 scale-100 flex flex-col items-center gap-4" data-index="0">
+              <div class="card w-full p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Contraté el servicio completo para mudarme desde el puerto de Estepona al centro. El embalaje de la vajilla fue impecable. Ni una copa rota.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Laura González</cite>
+                <span class="block text-sm text-muted">Mudanza Local</span></footer>
               </div>
             </article>
-            <article class="slide absolute inset-0 transition-all duration-500 ease-in-out opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="1">
-              <div class="bg-brand-lightBlue p-8 rounded-2xl border border-blue-100 w-full shadow-sm">
-                <div role="img" aria-label="5 de 5 estrellas" class="flex text-brand-cta gap-1 justify-center mb-4">★★★★★</div>
-                <blockquote class="text-lg text-slate-700 italic font-medium leading-relaxed"><p>“Necesitaba guardar mis muebles durante dos meses por una reforma. El guardamuebles está limpísimo y muy seguro. Muy recomendados.”</p></blockquote>
-                <footer class="mt-6"><cite class="block not-italic font-bold text-brand-blue">Carlos Martínez</cite>
-                <span class="block text-xs text-slate-600">Servicio Guardamuebles</span></footer>
+            <article class="slide absolute inset-0 transition-colors opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="1">
+              <div class="card w-full p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Necesitaba guardar mis muebles durante dos meses por una reforma. El guardamuebles está limpísimo y muy seguro. Muy recomendados.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Carlos Martínez</cite>
+                <span class="block text-sm text-muted">Servicio Guardamuebles</span></footer>
               </div>
             </article>
-            <article class="slide absolute inset-0 transition-all duration-500 ease-in-out opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="2">
-              <div class="bg-brand-lightBlue p-8 rounded-2xl border border-blue-100 w-full shadow-sm">
-                <div role="img" aria-label="5 de 5 estrellas" class="flex text-brand-cta gap-1 justify-center mb-4">★★★★★</div>
-                <blockquote class="text-lg text-slate-700 italic font-medium leading-relaxed"><p>“Puntualidad británica. Llegaron a las 8:00 en punto y a las 14:00 ya estaba todo montado en mi nueva casa en Cancelada. Eficiencia pura.”</p></blockquote>
-                <footer class="mt-6"><cite class="block not-italic font-bold text-brand-blue">Ana Ruiz</cite>
-                <span class="block text-xs text-slate-600">Mudanza Exprés</span></footer>
+            <article class="slide absolute inset-0 transition-colors opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="2">
+              <div class="card w-full p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Puntualidad británica. Llegaron a las 8:00 en punto y a las 14:00 ya estaba todo montado en mi nueva casa en Cancelada. Eficiencia pura.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Ana Ruiz</cite>
+                <span class="block text-sm text-muted">Mudanza Exprés</span></footer>
               </div>
             </article>
-            <article class="slide absolute inset-0 transition-all duration-500 ease-in-out opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="3">
-              <div class="bg-brand-lightBlue p-8 rounded-2xl border border-blue-100 w-full shadow-sm">
-                <div role="img" aria-label="5 de 5 estrellas" class="flex text-brand-cta gap-1 justify-center mb-4">★★★★★</div>
-                <blockquote class="text-lg text-slate-700 italic font-medium leading-relaxed"><p>“Tenía un piano de cola y me daba terror moverlo. Trajeron una grúa elevadora y lo manejaron con un cuidado increíble. Profesionales de verdad.”</p></blockquote>
-                <footer class="mt-6"><cite class="block not-italic font-bold text-brand-blue">David Fenwick</cite>
-                <span class="block text-xs text-slate-600">Transporte Especial</span></footer>
+            <article class="slide absolute inset-0 transition-colors opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="3">
+              <div class="card w-full p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“Tenía un piano de cola y me daba terror moverlo. Trajeron una grúa elevadora y lo manejaron con un cuidado increíble. Profesionales de verdad.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">David Fenwick</cite>
+                <span class="block text-sm text-muted">Transporte Especial</span></footer>
               </div>
             </article>
-            <article class="slide absolute inset-0 transition-all duration-500 ease-in-out opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="4">
-              <div class="bg-brand-lightBlue p-8 rounded-2xl border border-blue-100 w-full shadow-sm">
-                <div role="img" aria-label="5 de 5 estrellas" class="flex text-brand-cta gap-1 justify-center mb-4">★★★★★</div>
-                <blockquote class="text-lg text-slate-700 italic font-medium leading-relaxed"><p>“El precio fue exactamente el del presupuesto inicial. Se encargaron de llevarse los muebles viejos al punto limpio. Un alivio total.”</p></blockquote>
-                <footer class="mt-6"><cite class="block not-italic font-bold text-brand-blue">Sofía Mendez</cite>
-                <span class="block text-xs text-slate-600">Gestión Integral</span></footer>
+            <article class="slide absolute inset-0 transition-colors opacity-0 translate-x-10 pointer-events-none flex flex-col items-center gap-4" data-index="4">
+              <div class="card w-full p-8">
+                <div role="img" aria-label="5 de 5 estrellas" class="flex text-accent-text gap-1 justify-center mb-4">★★★★★</div>
+                <blockquote class="text-lg leading-relaxed text-body"><p>“El precio fue exactamente el del presupuesto inicial. Se encargaron de llevarse los muebles viejos al punto limpio. Un alivio total.”</p></blockquote>
+                <footer class="mt-6"><cite class="block font-semibold not-italic text-ink">Sofía Mendez</cite>
+                <span class="block text-sm text-muted">Gestión Integral</span></footer>
               </div>
             </article>
           </div>
 
-          <button type="button" id="next-btn" aria-label="Opinión siguiente" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white border border-gray-200 text-brand-blue hover:text-brand-cta p-2 rounded-full shadow-md hover:shadow-lg transition">
+          <button type="button" id="next-btn" aria-label="Opinión siguiente" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 rounded-full border border-line bg-white p-2 text-ink transition-colors hover:text-primary">
             <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
         </div>
@@ -371,127 +365,125 @@
       </div>
     </section>
 
-    <section id="contacto" class="py-20 bg-brand-blue text-white relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-      <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-brand-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+    <section id="contacto" class="bg-ink text-white py-16 md:py-24">
 
-      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 relative z-10">
+      <div class="max-w-6xl mx-auto px-6 grid gap-12 md:grid-cols-2">
         <div>
-          <h2 class="text-3xl font-bold">Pide tu presupuesto GRATIS</h2>
-          <p class="mt-4 text-blue-100 text-lg">Rellena el formulario y recibe una estimación en menos de 24 horas.</p>
+          <h2 class="text-3xl font-bold text-white md:text-4xl">Pide tu presupuesto GRATIS</h2>
+          <p class="mt-4 text-lg text-slate-300">Rellena el formulario y recibe una estimación en menos de 24 horas.</p>
           
-          <form action="https://formspree.io/f/xldqdlqn" method="POST" class="mt-8 space-y-4 bg-white p-8 rounded-2xl shadow-2xl text-slate-800">
+          <form action="https://formspree.io/f/xldqdlqn" method="POST" class="mt-8 space-y-5 rounded-xl bg-white p-6 text-body md:p-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                <div>
-                  <label for="f-nombre" class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre</label>
-                  <input name="name" id="f-nombre" autocomplete="name" type="text" placeholder="Tu nombre" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+                  <label for="f-nombre" class="field-label">Nombre</label>
+                  <input name="name" id="f-nombre" autocomplete="name" type="text" placeholder="Tu nombre" required class="field">
                </div>
                <div>
-                  <label for="f-telefono" class="block text-xs font-bold text-slate-500 uppercase mb-1">Teléfono</label>
-                  <input name="phone" id="f-telefono" autocomplete="tel" type="tel" placeholder="600..." required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+                  <label for="f-telefono" class="field-label">Teléfono</label>
+                  <input name="phone" id="f-telefono" autocomplete="tel" type="tel" placeholder="600..." required class="field">
                </div>
             </div>
           
             <div>
-                <label for="f-email" class="block text-xs font-bold text-slate-500 uppercase mb-1">Correo Electrónico</label>
-                <input name="email" id="f-email" autocomplete="email" type="email" placeholder="tu@email.com" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+                <label for="f-email" class="field-label">Correo Electrónico</label>
+                <input name="email" id="f-email" autocomplete="email" type="email" placeholder="tu@email.com" required class="field">
             </div>
             
             <div>
-              <label for="f-ruta" class="block text-xs font-bold text-slate-500 uppercase mb-1">Origen y Destino (Aprox)</label>
-              <input name="route" id="f-ruta" autocomplete="off" type="text" placeholder="Ej: De Estepona centro a Marbella" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50">
+              <label for="f-ruta" class="field-label">Origen y Destino (Aprox)</label>
+              <input name="route" id="f-ruta" autocomplete="off" type="text" placeholder="Ej: De Estepona centro a Marbella" class="field">
             </div>
           
             <div>
-              <label for="f-detalles" class="block text-xs font-bold text-slate-500 uppercase mb-1">Detalles</label>
-              <textarea name="message" id="f-detalles" placeholder="¿Hay ascensor? ¿Necesitas embalaje?" required class="w-full border border-gray-300 rounded-lg px-4 py-3 h-28 resize-none focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none bg-gray-50"></textarea>
+              <label for="f-detalles" class="field-label">Detalles</label>
+              <textarea name="message" id="f-detalles" placeholder="¿Hay ascensor? ¿Necesitas embalaje?" required class="field h-32 resize-none"></textarea>
             </div>
           
             <div class="flex items-start gap-3 mt-2">
-                <input type="checkbox" name="privacy_accepted" required id="privacy" class="mt-1 w-4 h-4 text-brand-orange rounded border-gray-300 focus:ring-brand-orange cursor-pointer">
-                <label for="privacy" class="text-xs text-slate-500 cursor-pointer">
-                  He leído y acepto la <a href="PoliticaPrivacidad.html" target="_blank" rel="noopener" class="underline hover:text-brand-cta">política de privacidad</a> y el tratamiento de mis datos para recibir el presupuesto.
+                <input type="checkbox" name="privacy_accepted" required id="privacy" class="mt-1 h-4 w-4 cursor-pointer accent-primary">
+                <label for="privacy" class="cursor-pointer text-sm text-muted">
+                  He leído y acepto la <a href="PoliticaPrivacidad.html" target="_blank" rel="noopener" class="text-primary underline hover:text-primary-dark">política de privacidad</a> y el tratamiento de mis datos para recibir el presupuesto.
                 </label>
             </div>
           
-            <button type="submit" class="bg-brand-cta text-white px-6 py-4 rounded-lg font-bold w-full hover:bg-brand-ctaHover transition-all shadow-lg hover:shadow-orange-500/30 text-lg flex justify-center items-center gap-2 group mt-4">
+            <button type="submit" class="btn-primary mt-2 w-full">
               Enviar solicitud
-              <span aria-hidden="true" class="group-hover:translate-x-1 transition-transform">→</span>
+              <span aria-hidden="true">→</span>
             </button>
           </form>
         </div>
 
         <aside class="flex flex-col h-full gap-6 mt-4 md:mt-0">
-          <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-lg">
-            <h3 class="font-bold text-xl mb-6 text-white border-b border-white/20 pb-4">Información directa</h3>
-            <address class="space-y-6 text-blue-50 not-italic">
-              <div class="flex items-center gap-4 group cursor-pointer">
-                <span aria-hidden="true" class="bg-brand-cta text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg group-hover:scale-110 transition-transform">📞</span>
+          <div class="rounded-xl border border-white/10 bg-white/5 p-8">
+            <h3 class="mb-6 border-b border-white/10 pb-4 text-lg font-semibold text-white">Información directa</h3>
+            <address class="space-y-6 not-italic text-slate-200">
+              <div class="flex items-center gap-4">
+                <span aria-hidden="true" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11.04 11.04 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg></span>
                 <div>
-                  <p class="text-xs uppercase text-blue-200 font-bold">Llámanos</p>
-                  <a href="tel:+34622115760" class="hover:text-white font-bold text-xl transition">622 115 760</a>
+                  <p class="text-sm text-slate-400">Llámanos</p>
+                  <a href="tel:+34622115760" class="text-lg font-semibold text-white transition-colors hover:text-accent">622 115 760</a>
                 </div>
               </div>
-              <div class="flex items-center gap-4 group cursor-pointer">
-                <span aria-hidden="true" class="bg-brand-cta text-white w-12 h-12 flex items-center justify-center rounded-full font-bold shadow-lg group-hover:scale-110 transition-transform">✉️</span>
+              <div class="flex items-center gap-4">
+                <span aria-hidden="true" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white/10 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
                  <div>
-                  <p class="text-xs uppercase text-blue-200 font-bold">Escríbenos</p>
-                  <a href="mailto:Mudanzas.c.simon@gmail.com" class="hover:text-white font-medium text-lg transition">Mudanzas.c.simon@gmail.com</a>
+                  <p class="text-sm text-slate-400">Escríbenos</p>
+                  <a href="mailto:Mudanzas.c.simon@gmail.com" class="break-all font-medium text-white transition-colors hover:text-accent">Mudanzas.c.simon@gmail.com</a>
                 </div>
               </div>
             </address>
           </div>
           
-          <div class="bg-slate-200 rounded-2xl overflow-hidden flex-grow border-4 border-white/20 shadow-inner min-h-[300px] relative">
-            <button type="button" data-map-src="https://maps.google.com/maps?q=Estepona,+Malaga&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" data-map-title="Mapa de localización en Estepona" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-slate-100 to-blue-100 text-brand-blue hover:to-blue-200 transition-colors">
-              <svg class="w-10 h-10 text-brand-orange" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
-              <span class="font-bold text-lg">Estepona, Málaga</span>
+          <div class="relative min-h-[280px] flex-grow overflow-hidden rounded-xl border border-white/10">
+            <button type="button" data-map-src="https://maps.google.com/maps?q=Estepona,+Malaga&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" data-map-title="Mapa de localización en Estepona" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-2 bg-white/5 text-white transition-colors hover:bg-white/10">
+              <svg class="h-10 w-10 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+              <span class="text-lg font-semibold">Estepona, Málaga</span>
               <span class="text-sm underline">Ver mapa interactivo</span>
             </button>
-            <noscript><a href="https://maps.google.com/?q=Estepona,+Malaga" class="absolute inset-0 flex items-center justify-center text-brand-blue font-bold underline">Ver ubicación en Google Maps</a></noscript>
+            <noscript><a href="https://maps.google.com/?q=Estepona,+Malaga" class="absolute inset-0 flex items-center justify-center font-semibold text-white underline">Ver ubicación en Google Maps</a></noscript>
           </div>
         </aside>
       </div>
     </section>
   </main>
 
-  <footer class="bg-slate-900 border-t border-slate-800 py-12 mt-auto text-slate-300">
+  <footer class="bg-ink border-t border-white/10 py-12 mt-auto text-slate-300">
     <div class="max-w-6xl mx-auto px-6">
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
         
         <div class="flex flex-col items-center md:items-start">
-           <p class="font-bold text-white text-xl mb-2">Mudanzas C.Simon</p>
+           <p class="mb-2 font-display text-xl font-semibold text-white">Mudanzas C.Simon</p>
            <p class="text-slate-400 text-sm">© 2025 Todos los derechos reservados.</p>
            <p class="text-slate-400 text-sm mt-1">Costa del Sol, Málaga.</p>
         </div>
 
         <div class="flex flex-col items-center">
-           <h2 class="font-bold text-white text-lg mb-4 uppercase tracking-wider">Enlaces Legales</h2>
+           <h2 class="mb-4 font-display text-base font-semibold text-white">Enlaces Legales</h2>
            <ul class="space-y-2 text-sm font-medium">
              <li>
-               <a href="AvisoLegal.html" class="hover:text-brand-orange transition-colors">Aviso Legal</a>
+               <a href="AvisoLegal.html" class="hover:text-white transition-colors">Aviso Legal</a>
              </li>
              <li>
-               <a href="PoliticaPrivacidad.html" class="hover:text-brand-orange transition-colors">Política de Privacidad</a>
+               <a href="PoliticaPrivacidad.html" class="hover:text-white transition-colors">Política de Privacidad</a>
              </li>
              <li>
-               <a href="PoliticaCookies.html" class="hover:text-brand-orange transition-colors">Política de Cookies</a>
+               <a href="PoliticaCookies.html" class="hover:text-white transition-colors">Política de Cookies</a>
              </li>
              <li>
-               <button type="button" data-cookie-settings class="hover:text-brand-orange transition-colors">Configurar cookies</button>
+               <button type="button" data-cookie-settings class="hover:text-white transition-colors">Configurar cookies</button>
              </li>
            </ul>
         </div>
 
         <div class="flex flex-col items-center md:items-end">
-           <h2 class="font-bold text-white text-lg mb-4">Síguenos</h2>
+           <h2 class="mb-4 font-display text-base font-semibold text-white">Síguenos</h2>
            <div class="flex gap-4">
-             <a href="https://www.facebook.com/mudanzas.c.simon" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-orange transition-all" aria-label="Facebook">
+             <a href="https://www.facebook.com/mudanzas.c.simon" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors" aria-label="Facebook">
                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
              </a>
              
-             <a href="https://www.instagram.com/mudanzascsimon/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-brand-orange transition-all" aria-label="Instagram">
+             <a href="https://www.instagram.com/mudanzascsimon/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-colors" aria-label="Instagram">
                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
              </a>
            </div>
@@ -499,8 +491,8 @@
 
       </div>
 
-      <div class="border-t border-slate-800 pt-8 text-center">
-         <a href="#main" class="text-brand-orange hover:text-white transition-colors text-sm font-semibold">
+      <div class="border-t border-white/10 pt-8 text-center">
+         <a href="#main" class="text-accent hover:text-white transition-colors text-sm font-semibold">
            ↑ Volver al inicio
          </a>
       </div>
