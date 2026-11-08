@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos propios del sitio (antes repetidos en cada HTML) */
+@layer base {
+  body { font-family: 'Inter', system-ui, sans-serif; }
+}
+
+/* Aparición suave: solo se oculta si el JS está activo (clase .js en <html>),
+   así las imágenes se ven aunque el script falle. */
+.js .reveal-fade { opacity: 0; transition: opacity 1.5s ease-out; }
+.js .reveal-fade.reveal-visible { opacity: 1; }
+
+/* Respeta a quien pide menos animación en su sistema */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-bounce-slow { animation: none; }
+  .js .reveal-fade { opacity: 1; transition: none; }
+}

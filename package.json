@@ -1,0 +1,12 @@
+{
+  "name": "web-mudanzas-c-simon",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
+    "build:img": "python scripts/optimizar-imagenes.py"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
