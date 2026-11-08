@@ -1,5 +1,86 @@
 // Script común de la web. Se carga con "defer", así que el HTML ya está listo.
 (function () {
+  // Aviso de cookies: Google Analytics (vía GTM) solo se carga si el usuario acepta.
+  // El cargador está en el <head> de cada página (window.cargarAnalitica).
+  var CLAVE = 'cookies-consentimiento';
+  var DOCE_MESES = 365 * 24 * 60 * 60 * 1000;
+
+  function leerDecision() {
+    try {
+      var fecha = +localStorage.getItem(CLAVE + '-fecha') || 0;
+      if (Date.now() - fecha >= DOCE_MESES) return null;
+      return localStorage.getItem(CLAVE);
+    } catch (e) { return null; }
+  }
+
+  function guardarDecision(valor) {
+    try {
+      localStorage.setItem(CLAVE, valor);
+      localStorage.setItem(CLAVE + '-fecha', String(Date.now()));
+    } catch (e) {}
+  }
+
+  function borrarCookiesAnalitica() {
+    var dominio = location.hostname.replace(/^www\./, '');
+    document.cookie.split(';').forEach(function (c) {
+      var nombre = c.split('=')[0].trim();
+      if (/^_ga/.test(nombre)) {
+        ['', '; domain=' + location.hostname, '; domain=.' + dominio].forEach(function (d) {
+          document.cookie = nombre + '=; Max-Age=0; path=/' + d;
+        });
+      }
+    });
+  }
+
+  var banner = null;
+
+  function cerrarBanner() {
+    if (banner) { banner.remove(); banner = null; }
+  }
+
+  function decidir(valor) {
+    guardarDecision(valor);
+    if (valor === 'aceptadas') {
+      if (window.cargarAnalitica) window.cargarAnalitica();
+    } else {
+      if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'denied' });
+      borrarCookiesAnalitica();
+    }
+    cerrarBanner();
+  }
+
+  function mostrarBanner() {
+    if (banner) return;
+    banner = document.createElement('div');
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-label', 'Aviso de cookies');
+    banner.className = 'fixed inset-x-0 bottom-0 z-[1000] p-4';
+    banner.innerHTML =
+      '<div class="max-w-3xl mx-auto bg-white text-slate-700 rounded-xl shadow-2xl border border-gray-200 p-5 md:flex md:items-center md:gap-6">' +
+        '<p class="text-sm leading-relaxed">Usamos cookies de análisis de Google Analytics para saber cuántas personas visitan la web y mejorarla. ' +
+        'Solo se activan si las aceptas. <a href="PoliticaCookies.html" class="underline text-brand-cta hover:text-brand-ctaHover">Más información</a></p>' +
+        '<div class="mt-4 md:mt-0 flex gap-3 shrink-0">' +
+          '<button type="button" data-consent="rechazadas" class="flex-1 md:flex-none px-5 py-2.5 rounded-md border-2 border-brand-blue text-brand-blue font-bold hover:bg-brand-lightBlue transition-colors">Rechazar</button>' +
+          '<button type="button" data-consent="aceptadas" class="flex-1 md:flex-none px-5 py-2.5 rounded-md border-2 border-brand-blue bg-brand-blue text-white font-bold hover:bg-slate-900 hover:border-slate-900 transition-colors">Aceptar</button>' +
+        '</div>' +
+      '</div>';
+    banner.querySelectorAll('[data-consent]').forEach(function (btn) {
+      btn.addEventListener('click', function () { decidir(btn.getAttribute('data-consent')); });
+    });
+    document.body.appendChild(banner);
+  }
+
+  if (!leerDecision()) mostrarBanner();
+
+  // "Configurar cookies" en el pie: vuelve a mostrar el aviso
+  document.querySelectorAll('[data-cookie-settings]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      mostrarBanner();
+      var primero = banner && banner.querySelector('button');
+      if (primero) primero.focus();
+    });
+  });
+
   // Aparición suave de las imágenes al hacer scroll
   var reveal = document.querySelectorAll('.reveal-fade');
   if (reveal.length && 'IntersectionObserver' in window) {

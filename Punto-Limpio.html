@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PJR7H96Z');</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script>
+    // Consentimiento de cookies: Google Tag Manager (Analytics) solo se carga si el usuario acepta.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      analytics_storage: 'denied', ad_storage: 'denied',
+      ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    window.cargarAnalitica = function () {
+      if (window.gtmCargado) return;
+      window.gtmCargado = true;
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PJR7H96Z');
+    };
+    try {
+      var fecha = +localStorage.getItem('cookies-consentimiento-fecha') || 0;
+      var vigente = Date.now() - fecha < 365 * 24 * 60 * 60 * 1000; // se vuelve a preguntar cada 12 meses
+      if (vigente && localStorage.getItem('cookies-consentimiento') === 'aceptadas') window.cargarAnalitica();
+    } catch (e) {}
+  </script>
   <script>document.documentElement.classList.add('js')</script>
   <link rel="icon" href="favicon.ico" sizes="48x48" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
@@ -102,9 +121,6 @@
 </head>
 
 <body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen relative">
-
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJR7H96Z"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-brand-cta text-white px-3 py-2 rounded shadow-lg transition" href="#main">Saltar al contenido</a>
   <a href="https://wa.me/34622115760?text=Hola,%20me%20interesa%20el%20servicio%20de%20retirada%20de%20muebles/punto%20limpio" 
      target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp (se abre en una pestaña nueva)"
@@ -361,7 +377,7 @@
                 <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
         </div>
-        <p class="mt-6 text-sm text-slate-400"><a href="AvisoLegal.html" class="hover:text-brand-orange transition-colors">Aviso Legal</a> · <a href="PoliticaPrivacidad.html" class="hover:text-brand-orange transition-colors">Política de Privacidad</a> · <a href="PoliticaCookies.html" class="hover:text-brand-orange transition-colors">Política de Cookies</a></p>
+        <p class="mt-6 text-sm text-slate-400"><a href="AvisoLegal.html" class="hover:text-brand-orange transition-colors">Aviso Legal</a> · <a href="PoliticaPrivacidad.html" class="hover:text-brand-orange transition-colors">Política de Privacidad</a> · <a href="PoliticaCookies.html" class="hover:text-brand-orange transition-colors">Política de Cookies</a> · <button type="button" data-cookie-settings class="hover:text-brand-orange transition-colors">Configurar cookies</button></p>
 
         <div class="mt-4">
               <a href="index.html" class="text-brand-orange hover:text-white transition-colors underline">Volver a la página principal</a>

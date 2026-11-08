@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PJR7H96Z');</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script>
+    // Consentimiento de cookies: Google Tag Manager (Analytics) solo se carga si el usuario acepta.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      analytics_storage: 'denied', ad_storage: 'denied',
+      ad_user_data: 'denied', ad_personalization: 'denied'
+    });
+    window.cargarAnalitica = function () {
+      if (window.gtmCargado) return;
+      window.gtmCargado = true;
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PJR7H96Z');
+    };
+    try {
+      var fecha = +localStorage.getItem('cookies-consentimiento-fecha') || 0;
+      var vigente = Date.now() - fecha < 365 * 24 * 60 * 60 * 1000; // se vuelve a preguntar cada 12 meses
+      if (vigente && localStorage.getItem('cookies-consentimiento') === 'aceptadas') window.cargarAnalitica();
+    } catch (e) {}
+  </script>
   <script>document.documentElement.classList.add('js')</script>
   <link rel="icon" href="favicon.ico" sizes="48x48" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
@@ -104,9 +123,6 @@
 </head>
 
 <body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen relative">
-
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJR7H96Z"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-brand-cta text-white px-3 py-2 rounded shadow-lg transition" href="#main">Saltar al contenido</a>
 
   <a href="https://wa.me/34622115760?text=Hola,%20me%20interesa%20un%20presupuesto%20para%20mudanza" 
@@ -461,6 +477,9 @@
              </li>
              <li>
                <a href="PoliticaCookies.html" class="hover:text-brand-orange transition-colors">Política de Cookies</a>
+             </li>
+             <li>
+               <button type="button" data-cookie-settings class="hover:text-brand-orange transition-colors">Configurar cookies</button>
              </li>
            </ul>
         </div>
