@@ -7,7 +7,7 @@ module.exports = {
         // Paleta del rediseño (azul y naranja del logo)
         ink: '#0F1B2D',          // títulos y fondos oscuros
         body: '#334155',         // texto principal
-        muted: '#64748B',        // texto secundario
+        muted: '#566579',        // texto secundario
         surface: '#F6F8FB',      // fondo alterno
         line: '#E3E8EF',         // bordes
         primary: {
@@ -20,8 +20,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         prose: '65ch',

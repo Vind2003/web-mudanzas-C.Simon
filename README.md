@@ -16,6 +16,7 @@ Se publica en Vercel automáticamente con cada cambio en la rama `main`.
 | `npm install` | Instala las dependencias (la primera vez) |
 | `npm run dev` | Servidor local en <http://localhost:8080> que se recarga al guardar |
 | `npm run build` | Genera la web completa en `_site/` (es lo que ejecuta Vercel) |
+| `npm run preview` | Sirve `_site/` en <http://localhost:8090> con las cabeceras y redirecciones de Vercel |
 | `npm run build:css` | Solo compila el CSS (`src/styles.css` → `css/styles.css`) |
 | `npm run build:img` | Regenera las fotos optimizadas, favicons e imágenes para compartir |
 | `npx html-validate "_site/**/*.html"` | Valida el HTML generado |
@@ -23,43 +24,86 @@ Se publica en Vercel automáticamente con cada cambio en la rama `main`.
 ## Estructura
 
 ```
-src/                     Páginas y plantillas (aquí se edita el contenido)
-├── _data/site.js        Teléfono, email, redes, menú… (datos comunes)
+src/                       Páginas y plantillas (aquí se edita el contenido)
+├── _data/
+│   ├── site.js            Teléfono, email, redes, menú, servicios y municipios
+│   ├── alts.json          Texto alternativo de cada foto
+│   ├── fotos.json         Tamaños de las fotos (lo genera build:img, no se edita a mano)
+│   └── eleventyComputed.js  Datos estructurados para Google (empresa, servicio, preguntas)
 ├── _includes/
-│   ├── layouts/base.njk Estructura de todas las páginas (<head>, cabecera, pie)
-│   └── partials/        Cabecera, pie, formulario de contacto y botones de WhatsApp
-├── index.njk            Portada
+│   ├── layouts/base.njk     Estructura común: <head>, cabecera, primer bloque, preguntas, pie
+│   ├── layouts/servicio.njk Plantilla de las páginas de servicio y de zona
+│   ├── macros.njk           Piezas reutilizables: foto, flecha, galería, filas
+│   └── partials/            Cabecera, pie, formulario, tarjetas de servicios, pasos…
+├── index.njk              Portada
 ├── hogar-oficina.njk, embalaje-premium.njk, guardamuebles.njk, punto-limpio.njk
+├── mudanzas-marbella.njk, mudanzas-malaga.njk    Páginas de zona
 ├── aviso-legal.njk, politica-privacidad.njk, politica-cookies.njk, 404.njk
-├── sitemap.njk          Genera sitemap.xml automáticamente
-└── styles.css           Estilos propios y componentes (btn-primary, card, field…)
-js/consent.js            Aviso de cookies: carga Google Analytics solo si se acepta
-js/site.js               Menú móvil, carrusel, mapa, formulario y aviso de cookies
-fotos/originales/        Fotos originales (no se publican)
-fotos/web/, fotos/og/    Fotos optimizadas que usa la web (las genera build:img)
-fonts/                   Fuentes Inter y Plus Jakarta Sans (licencia OFL)
-public/                  Se copia tal cual a la raíz: favicons, robots.txt…
-tailwind.config.js       Paleta de colores y tipografías
-eleventy.config.js       Configuración de Eleventy
-vercel.json              Compilación, redirecciones, cabeceras de seguridad y caché
+├── sitemap.njk            Genera sitemap.xml automáticamente
+└── styles.css             Tipografía, componentes (btn-primary, card, frame…) y movimiento
+js/consent.js              Aviso de cookies: carga Google Analytics solo si se acepta
+js/site.js                 Menú móvil, barra de contacto, formulario y aviso de cookies
+fotos/originales/          Fotos originales (no se publican)
+fotos/web/, fotos/og/      Fotos optimizadas que usa la web (las genera build:img)
+fonts/                     Fuente Hanken Grotesk (licencia OFL)
+public/                    Se copia tal cual a la raíz: favicons, robots.txt…
+scripts/                   optimizar-imagenes.py y preview.js
+tailwind.config.js         Paleta de colores y tipografía
+eleventy.config.js         Configuración de Eleventy
+vercel.json                Compilación, redirecciones, cabeceras de seguridad y caché
+```
+
+## Cómo es una página
+
+Las páginas de servicio y de zona solo contienen datos, en la cabecera entre `---`:
+
+```yaml
+layout: "layouts/servicio.njk"
+permalink: "/guardamuebles/"
+title: "Guardamuebles en Estepona y Costa del Sol | C.Simon"   # título para Google
+description: "…"                                               # descripción para Google
+nav: "guardamuebles"            # marca la página actual en el menú
+esquema: { tipo: "servicio", nombre: "Guardamuebles", miga: "Guardamuebles" }
+hero:                           # primer bloque: titular, texto y foto
+  titulo: "Guardamuebles en la Costa del Sol"
+  texto: "…"
+  foto: "colchon-guardamueble"
+  nota: "Pagas solo por el tiempo que lo necesites."
+incluye:                        # bloque con lista (filas) o con grupos (listas) y foto
+  titulo: "Instalaciones del guardamuebles"
+  foto: "baules-guardamuebles"
+  filas: [{ t: "Seguridad 24 h", d: "Alarma y videovigilancia." }]
+proceso:                        # pasos + tira de 4 fotos
+  titulo: "Cómo funciona el guardamuebles"
+  fotos: ["cajas-guardamueble", "cabecero-guardamuebles", "fragil-guardamuebles", "camion-ordenado"]
+pasos: [{ t: "…", d: "…" }]     # opcional; si falta se usan los tres pasos generales
+faq: [{ p: "¿Pregunta?", r: "Respuesta." }]   # se muestran en la página y se envían a Google
+contacto: { … }                 # formulario (ver abajo)
 ```
 
 ## Tareas habituales
 
-**Cambiar el teléfono, el email o el menú:** edita `src/_data/site.js`. Se actualiza en todas las páginas.
+**Cambiar el teléfono, el email, el menú o los municipios:** edita `src/_data/site.js`.
 
-**Editar el texto de una página:** abre su archivo en `src/` (por ejemplo `src/guardamuebles.njk`).
-La parte de arriba entre `---` contiene el título, la descripción para Google y la configuración
-del formulario de esa página; debajo está el contenido.
+**Editar un texto:** abre el archivo de la página en `src/` y cambia el dato en su cabecera.
 
-**Configurar el formulario de una página** (variable `contacto` en la cabecera del archivo):
+**Añadir una pregunta frecuente:** añade una línea a `faq` en la página. Aparece en la web y en
+los datos estructurados sin tocar nada más.
+
+**Añadir una página de zona** (por ejemplo Fuengirola): copia `src/mudanzas-marbella.njk`, cambia
+`permalink`, textos, barrios y fotos, y añádela a `zonas` en `src/_data/site.js` para que salga en
+el pie y en la portada. Escribe contenido propio de esa zona: Google penaliza las páginas de
+ciudad que son copias unas de otras.
+
+**Configurar el formulario de una página** (variable `contacto`):
 
 ```yaml
 contacto:
-  titulo: "Pide presupuesto de almacenaje"
-  textos: ["Servicio en Málaga y alrededores."]
+  titulo: "Pide presupuesto de guardamuebles"
+  textos: ["Cuéntanos qué necesitas guardar."]
   asunto: "Guardamuebles"          # aparece en el asunto del correo recibido
   vivienda: false                  # true muestra el desplegable "Tipo de inmueble"
+  foto: "embalaje-mueble-1"        # foto junto a los datos de contacto
   extra:                           # campo opcional propio de la página
     id: "tiempo"
     nombre: "duration"
@@ -73,10 +117,21 @@ contacto:
 Los envíos llegan por correo a través de [Formspree](https://formspree.io/). El campo oculto
 `_gotcha` frena el spam de robots.
 
-**Añadir fotos:** copia la foto original en `fotos/originales/`, ejecuta `npm run build:img` y
-úsala en la página con las rutas `/fotos/web/<nombre>-640.webp` y `-1200.webp`.
+**Añadir fotos:** copia la original en `fotos/originales/`, ejecuta `npm run build:img` (crea las
+versiones de 640, 960 y 1200 px y actualiza `fotos.json`), añade su descripción en
+`src/_data/alts.json` y úsala por su nombre en minúsculas, por ejemplo `foto: "camion-lateral"`.
 
-**Cambiar colores o tipografías:** `tailwind.config.js` (colores `primary`, `accent`, `ink`…).
+**Cambiar colores o tipografía:** `tailwind.config.js` (colores `primary`, `accent`, `ink`…) y
+`src/styles.css` (tamaños de titulares y componentes).
+
+## Criterios de diseño
+
+- Una sola familia tipográfica (Hanken Grotesk); los titulares van en peso normal.
+- Las fotos reales del trabajo llevan cada sección; sin pies de foto ni iconos dibujados.
+- Un único color de acción (azul) para botones y enlaces; el naranja queda para detalles.
+- Texto a la izquierda y foto a la derecha en todos los bloques partidos.
+- Movimiento discreto: el primer bloque entra una vez al cargar; tarjetas, fotos y botones
+  responden al ratón. Todo se desactiva si el sistema pide menos animación.
 
 ## Publicación (Vercel)
 
@@ -96,7 +151,7 @@ En cada cambio subido a GitHub, `.github/workflows/calidad.yml`:
 1. Genera la web.
 2. Valida el HTML (`.htmlvalidate.json`).
 3. Revisa la accesibilidad de todas las páginas con pa11y y axe (`.pa11yci.json`).
-4. Pasa Lighthouse a la portada y a dos servicios (`lighthouserc.json`): falla si la
+4. Pasa Lighthouse a la portada, un servicio y una zona (`lighthouserc.json`): falla si la
    accesibilidad o el SEO bajan de 95/100 y avisa si el rendimiento o las buenas prácticas bajan.
 
 Los resultados se ven en la pestaña **Actions** del repositorio en GitHub.

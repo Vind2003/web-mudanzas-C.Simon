@@ -1,7 +1,7 @@
 """Genera las imágenes optimizadas de la web a partir de las fotos originales.
 
 Uso:  python scripts/optimizar-imagenes.py
-- fotos/originales/*.jpg|jpeg  ->  fotos/web/<nombre>-640.webp y <nombre>-1200.webp
+- fotos/originales/*.jpg|jpeg  ->  fotos/web/<nombre>-640.webp, -960.webp y -1200.webp
 - fotos/originales/Logo.jpg    ->  logo de la cabecera y favicons (en public/)
 - Imágenes para compartir (Open Graph)  ->  fotos/og/
 Los originales no se tocan. Al añadir una foto nueva, basta con volver a ejecutarlo.
@@ -14,7 +14,7 @@ FOTOS = RAIZ / "fotos"
 ORIGEN = FOTOS / "originales"   # fotos originales (no se publican)
 DESTINO = FOTOS / "web"
 PUBLICO = RAIZ / "public"       # archivos que van a la raíz de la web
-ANCHOS = (640, 1200)
+ANCHOS = (640, 960, 1200)
 CALIDAD = 78
 
 
@@ -65,6 +65,8 @@ OG = {  # imagen para compartir (WhatsApp, Facebook...) de cada página
     "embalaje": "Embalaje-MueblesGrandes.jpg",
     "guardamuebles": "Colchon-Guardamueble.jpeg",
     "punto-limpio": "PuntoLimpio-furgoneta.jpg",
+    "marbella": "Camion-Detras.jpg",
+    "malaga": "Camion-lleno-Trabajador.jpg",
 }
 
 
@@ -86,7 +88,23 @@ def og():
         print(f"{salida.relative_to(RAIZ)}  {salida.stat().st_size // 1024} KB")
 
 
+def manifiesto():
+    """Guarda el ancho y alto de cada foto para que las plantillas los pongan en <img>."""
+    import json
+    datos = {}
+    for ruta in sorted(DESTINO.glob("*-640.webp")):
+        nombre = ruta.name[:-len("-640.webp")]
+        w, h = Image.open(ruta).size
+        wm = Image.open(DESTINO / f"{nombre}-960.webp").size[0]
+        wg = Image.open(DESTINO / f"{nombre}-1200.webp").size[0]
+        datos[nombre] = {"w640": w, "h640": h, "w960": wm, "w1200": wg}
+    salida = RAIZ / "src" / "_data" / "fotos.json"
+    salida.write_text(json.dumps(datos, indent=2), encoding="utf-8")
+    print(f"{salida.relative_to(RAIZ)}  {len(datos)} fotos")
+
+
 if __name__ == "__main__":
     fotos()
     logo()
     og()
+    manifiesto()

@@ -1,0 +1,15 @@
+{#- Los tres pasos del servicio. Una página puede definir los suyos en la variable "pasos". #}
+{%- set lista = pasos or [
+  { t: "Nos cuentas qué necesitas", d: "Por teléfono, WhatsApp o con el formulario. Te respondemos en menos de 24 horas." },
+  { t: "Visita y presupuesto cerrado", d: "Vemos la vivienda sin coste ni compromiso y te damos un precio que no cambia." },
+  { t: "Hacemos la mudanza", d: "Nos ocupamos del desmontaje, el embalaje, el transporte y el montaje." }
+] -%}
+<ol class="grid gap-8 md:grid-cols-3 md:gap-6">
+  {%- for paso in lista %}
+  <li class="border-t border-ink/15 pt-5">
+    <p class="label">Paso {{ loop.index }}</p>
+    <h3 class="mt-2">{{ paso.t }}</h3>
+    <p class="mt-2">{{ paso.d }}</p>
+  </li>
+  {%- endfor %}
+</ol>

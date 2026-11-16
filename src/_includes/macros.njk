@@ -1,0 +1,34 @@
+{#- Piezas reutilizables. Se importan así en cada página:
+    {% from "macros.njk" import foto, flecha, galeria, filas with context %} -#}
+
+{#- Foto optimizada: tamaños del manifiesto (src/_data/fotos.json) y texto alternativo de alts.json -#}
+{% macro foto(nombre, sizes="(min-width: 1024px) 50vw, 100vw", prioridad=false, alt="") -%}
+{%- set f = fotos[nombre] -%}
+<img src="/fotos/web/{{ nombre }}-640.webp" srcset="/fotos/web/{{ nombre }}-640.webp {{ f.w640 }}w{% if f.w960 > f.w640 %}, /fotos/web/{{ nombre }}-960.webp {{ f.w960 }}w{% endif %}{% if f.w1200 > f.w960 %}, /fotos/web/{{ nombre }}-1200.webp {{ f.w1200 }}w{% endif %}" sizes="{{ sizes }}" width="{{ f.w640 }}" height="{{ f.h640 }}" alt="{{ alt or alts[nombre] }}"{% if prioridad %} fetchpriority="high"{% else %} loading="lazy" decoding="async"{% endif %}>
+{%- endmacro %}
+
+{#- Flecha de los enlaces y botones; avanza 3 px al pasar el ratón -#}
+{% macro flecha() -%}
+<svg class="m-arrow h-4 w-4 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+{%- endmacro %}
+
+{#- Tira de fotos del trabajo, sin pies de foto: 2 columnas en móvil, 4 en escritorio -#}
+{% macro galeria(nombres, columnas=4) -%}
+<div class="grid grid-cols-2 gap-3 md:gap-6 {% if columnas == 3 %}lg:grid-cols-3{% else %}lg:grid-cols-4{% endif %}">
+  {%- for nombre in nombres %}
+  <div class="frame aspect-[4/5]">{{ foto(nombre, "(min-width: 1024px) 25vw, 50vw") }}</div>
+  {%- endfor %}
+</div>
+{%- endmacro %}
+
+{#- Lista en filas (título y una línea), sin iconos -#}
+{% macro filas(items) -%}
+<ul class="rows">
+  {%- for item in items %}
+  <li>
+    <h3>{{ item.t }}</h3>
+    <p class="mt-1.5">{{ item.d }}</p>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endmacro %}

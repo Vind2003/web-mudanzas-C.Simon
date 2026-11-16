@@ -1,0 +1,52 @@
+---
+layout: "layouts/base.njk"
+---
+{#- Plantilla de las páginas de servicio y de zona. Cada página aporta en su cabecera:
+    incluye: { titulo, texto, foto, filas: [{t, d}] }   o bien   listas: [{t, items: []}]
+    proceso: { titulo, fotos: [4 nombres] }   y, opcionalmente, pasos: [{t, d}] -#}
+{%- from "macros.njk" import foto, flecha, galeria, filas with context -%}
+
+    <section class="section">
+      <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
+        <div class="lg:col-span-6 lg:pr-10">
+          <h2>{{ incluye.titulo }}</h2>
+          {%- if incluye.texto %}
+          <p class="lead mt-5">{{ incluye.texto }}</p>
+          {%- endif %}
+          {%- if incluye.filas %}
+          <div class="mt-10">{{ filas(incluye.filas) }}</div>
+          {%- endif %}
+          {%- if incluye.listas %}
+          <div class="mt-10 grid gap-8 sm:grid-cols-2">
+            {%- for grupo in incluye.listas %}
+            <div>
+              <h3>{{ grupo.t }}</h3>
+              <ul class="mt-3 space-y-1.5">
+                {%- for item in grupo.items %}
+                <li>{{ item }}</li>
+                {%- endfor %}
+              </ul>
+            </div>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+        </div>
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="frame aspect-[4/5]">{{ foto(incluye.foto, "(min-width: 1024px) 40vw, 100vw") }}</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>{{ proceso.titulo }}</h2>
+        </div>
+        {% include "partials/pasos.njk" %}
+        <div class="mt-12 md:mt-16">{{ galeria(proceso.fotos) }}</div>
+      </div>
+    </section>
+
+{{ content | safe }}
+
+    {% include "partials/relacionados.njk" %}

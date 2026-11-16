@@ -1,19 +1,62 @@
 ---
-layout: "layouts/base.njk"
+layout: "layouts/servicio.njk"
 permalink: "/guardamuebles/"
-title: "Guardamuebles en Estepona y la Costa del Sol | C.Simon"
-description: "Guardamuebles en Málaga y la Costa del Sol: instalaciones vigiladas 24h, secas y limpias, con inventario detallado. Guarda tus muebles semanas, meses o años."
+title: "Guardamuebles en Estepona y Costa del Sol | C.Simon"
+description: "Guardamuebles en la Costa del Sol: instalaciones vigiladas 24 h, secas y limpias, con inventario detallado. Guarda tus muebles por semanas, meses o años."
 ogImagen: "og-guardamuebles.jpg"
-ogAlt: "Colchón protegido en el guardamuebles"
+ogAlt: "Muebles protegidos en el guardamuebles"
 nav: "guardamuebles"
 waTexto: "Hola, me interesa información sobre el servicio de guardamuebles"
+esquema:
+  tipo: "servicio"
+  nombre: "Guardamuebles"
+  miga: "Guardamuebles"
+hero:
+  titulo: "Guardamuebles en la Costa del Sol"
+  texto: "Guarda tus muebles y cajas por días, meses o años en instalaciones vigiladas las 24 horas, secas y limpias, con un inventario de todo lo que entra."
+  foto: "colchon-guardamueble"
+  nota: "Pagas solo por el tiempo que lo necesites."
+incluye:
+  titulo: "Instalaciones del guardamuebles"
+  texto: "No es un simple trastero: está preparado para que tus muebles salgan como entraron."
+  foto: "baules-guardamuebles"
+  filas:
+    - t: "Seguridad 24 h"
+      d: "Alarma y videovigilancia las 24 horas del día."
+    - t: "Inventario detallado"
+      d: "Hacemos un inventario completo al entrar. Sabrás qué tienes guardado en cada contenedor."
+    - t: "Sin humedades"
+      d: "Espacios secos, ventilados y protegidos contra plagas."
+    - t: "Tiempo flexible"
+      d: "Desde unas semanas durante una reforma hasta años por un traslado."
+proceso:
+  titulo: "Cómo funciona el guardamuebles"
+  fotos: ["cajas-guardamueble", "cabecero-guardamuebles", "fragil-guardamuebles", "camion-ordenado"]
+pasos:
+  - t: "Nos cuentas qué quieres guardar"
+    d: "Por teléfono, WhatsApp o con el formulario. Respondemos en menos de 24 horas."
+  - t: "Embalaje e inventario"
+    d: "Protegemos cada mueble y anotamos todo lo que entra."
+  - t: "Almacenaje y entrega"
+    d: "Guardamos tus cosas el tiempo que necesites y te las devolvemos cuando nos digas."
+faqTitulo: "Preguntas sobre el guardamuebles"
+faq:
+  - p: "¿Cuánto tiempo puedo guardar mis muebles?"
+    r: "El que necesites: desde unas semanas durante una reforma hasta años. Pagas solo por el tiempo que los tengas guardados."
+  - p: "¿Cómo sé qué tengo guardado?"
+    r: "Al entrar hacemos un inventario completo, así sabes qué hay en cada contenedor."
+  - p: "¿Están vigiladas las instalaciones?"
+    r: "Sí. Tienen alarma y videovigilancia las 24 horas del día."
+  - p: "¿Se pueden estropear los muebles con la humedad?"
+    r: "Los espacios son secos, están ventilados y protegidos contra plagas, para que la ropa y los muebles salgan como entraron."
 contacto:
-  titulo: "Pide presupuesto de almacenaje"
+  titulo: "Pide presupuesto de guardamuebles"
   textos:
-    - "Servicio en Málaga y alrededores."
-    - "Cuéntanos qué necesitas guardar y te daremos precio enseguida."
+    - "Cuéntanos qué necesitas guardar y durante cuánto tiempo."
+    - "Respondemos en menos de 24 horas."
   asunto: "Guardamuebles"
   vivienda: false
+  foto: "embalaje-mueble-1"
   extra:
     id: "tiempo"
     nombre: "duration"
@@ -22,136 +65,4 @@ contacto:
   mensaje:
     etiqueta: "¿Qué necesitas guardar?"
     placeholder: "Ej.: muebles de un piso de 2 habitaciones, 20 cajas, un sofá…"
-jsonld: |
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Service",
-        "@id": "https://www.mudanzascsimon.es/guardamuebles/#servicio",
-        "name": "Guardamuebles",
-        "serviceType": "Guardamuebles",
-        "description": "Guardamuebles en Málaga y la Costa del Sol: instalaciones vigiladas 24h, secas y limpias, con inventario detallado. Guarda tus muebles semanas, meses o años.",
-        "url": "https://www.mudanzascsimon.es/guardamuebles/",
-        "image": "https://www.mudanzascsimon.es/fotos/og/og-guardamuebles.jpg",
-        "provider": {
-          "@type": "MovingCompany",
-          "@id": "https://www.mudanzascsimon.es/#empresa",
-          "name": "Mudanzas C.Simon",
-          "url": "https://www.mudanzascsimon.es/",
-          "telephone": "+34622115760"
-        },
-        "areaServed": [
-          {
-            "@type": "City",
-            "name": "Estepona"
-          },
-          {
-            "@type": "City",
-            "name": "Marbella"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Costa del Sol"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Provincia de Málaga"
-          },
-          {
-            "@type": "Country",
-            "name": "España"
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Inicio",
-            "item": "https://www.mudanzascsimon.es/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Guardamuebles",
-            "item": "https://www.mudanzascsimon.es/guardamuebles/"
-          }
-        ]
-      }
-    ]
-  }
 ---
-
-    
-    <section class="border-b border-line bg-surface py-16 md:py-20">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="text-4xl font-bold md:text-5xl">Guardamuebles seguro</h1>
-            <p class="mx-auto mt-4 max-w-prose text-lg text-body">Tu espacio extra en Málaga. Custodia profesional para tus pertenencias por días, meses o años.</p>
-        </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-ink">Tranquilidad total para tus cosas</h2>
-            <p class="mt-3 text-body max-w-2xl mx-auto">No es un simple trastero. Son instalaciones vigiladas, limpias y preparadas para conservar tus muebles en perfecto estado.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="card p-8">
-                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                </div>
-                <h3 class="mb-2 text-lg font-semibold">Seguridad 24h</h3>
-                <p class="text-body leading-relaxed">Instalaciones monitoreadas con sistemas de alarma y videovigilancia CCTV las 24 horas del día.</p>
-            </div>
-
-            <div class="card p-8">
-                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                </div>
-                <h3 class="mb-2 text-lg font-semibold">Inventario detallado</h3>
-                <p class="text-body leading-relaxed">Realizamos un inventario completo al entrar. Sabrás exactamente qué tienes guardado en cada contenedor.</p>
-            </div>
-
-            <div class="card p-8">
-                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
-                </div>
-                <h3 class="mb-2 text-lg font-semibold">Sin humedades</h3>
-                <p class="text-body leading-relaxed">Espacios secos, ventilados y protegidos contra plagas. Tu ropa y tus muebles salen tal como entraron.</p>
-            </div>
-
-            <div class="card p-8">
-                <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="mb-2 text-lg font-semibold">Tiempo flexible</h3>
-                <p class="text-body leading-relaxed">Paga solo por el tiempo que necesites. Desde unas semanas durante una reforma hasta años por traslados.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto px-6 border-t border-line py-16 md:py-24">
-        <h2 class="mb-12 text-3xl font-bold">Nuestras instalaciones</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm reveal-fade group">
-                <img src="/fotos/web/baules-guardamuebles-640.webp" srcset="/fotos/web/baules-guardamuebles-640.webp 640w, /fotos/web/baules-guardamuebles-1200.webp 1200w" sizes="(min-width: 768px) 50vw, 100vw" width="640" height="853" loading="lazy" decoding="async" alt="Cajas de plástico con pertenencias apiladas para su almacenaje" class="h-full w-full object-cover">
-            </div>
-
-            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm reveal-fade group">
-                <img src="/fotos/web/cajas-guardamueble-640.webp" srcset="/fotos/web/cajas-guardamueble-640.webp 640w, /fotos/web/cajas-guardamueble-1200.webp 1200w" sizes="(min-width: 768px) 50vw, 100vw" width="640" height="853" loading="lazy" decoding="async" alt="Cajas de cartón cerradas y ordenadas para llevar al guardamuebles" class="h-full w-full object-cover">
-            </div>
-
-            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm reveal-fade group">
-                <img src="/fotos/web/fragil-guardamuebles-640.webp" srcset="/fotos/web/fragil-guardamuebles-640.webp 640w, /fotos/web/fragil-guardamuebles-1200.webp 1200w" sizes="(min-width: 768px) 50vw, 100vw" width="640" height="480" loading="lazy" decoding="async" alt="Objetos frágiles envueltos uno a uno en plástico de burbujas dentro de una caja" class="h-full w-full object-cover">
-            </div>
-
-            <div class="w-full aspect-square bg-surface rounded-xl overflow-hidden shadow-sm reveal-fade group">
-                <img src="/fotos/web/cabecero-guardamuebles-640.webp" srcset="/fotos/web/cabecero-guardamuebles-640.webp 640w, /fotos/web/cabecero-guardamuebles-1200.webp 1200w" sizes="(min-width: 768px) 50vw, 100vw" width="640" height="853" loading="lazy" decoding="async" alt="Cabecero de cama acolchado protegido con manta y film para el guardamuebles" class="h-full w-full object-cover">
-            </div>
-        </div>
-    </section>

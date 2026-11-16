@@ -1,42 +1,56 @@
-{#- Pie común a todas las páginas #}
-<footer class="mt-auto border-t border-white/10 bg-ink py-12 text-slate-300">
-  <div class="mx-auto max-w-6xl px-6">
-    <div class="mb-8 grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:text-left">
+{#- Pie común: contacto, servicios, zonas y enlaces legales #}
+<footer class="ground-dark mt-auto border-t border-white/10 pb-10 pt-16">
+  <div class="wrap">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
 
-      <div class="flex flex-col items-center md:items-start">
-        <p class="mb-2 font-display text-xl font-bold text-white">Mudanzas C.Simon</p>
-        <address class="not-italic text-sm text-slate-400">
-          Costa del Sol, Málaga<br>
-          <a href="tel:{{ site.telefono }}" class="inline-block py-1.5 transition-colors hover:text-white">{{ site.telefonoTexto }}</a><br>
-          <a href="mailto:{{ site.email }}" class="inline-block break-all py-1.5 transition-colors hover:text-white">{{ site.email }}</a>
+      <div class="lg:col-span-4">
+        <p class="text-2xl tracking-tight text-white">Mudanzas C.Simon</p>
+        <address class="mt-4 not-italic">
+          Estepona, Málaga<br>
+          <a href="tel:{{ site.telefono }}" class="inline-flex min-h-11 items-center text-white"><span class="link">{{ site.telefonoTexto }}</span></a><br>
+          <a href="mailto:{{ site.email }}" class="inline-flex min-h-11 items-center break-all text-white"><span class="link">{{ site.email }}</span></a>
         </address>
-      </div>
-
-      <div class="flex flex-col items-center">
-        <h2 class="mb-4 font-display text-base font-semibold text-white">Enlaces legales</h2>
-        <ul class="space-y-2 text-sm font-medium">
-          <li><a href="/aviso-legal/" class="transition-colors hover:text-white{% if nav == 'aviso' %} font-semibold text-accent{% endif %}"{% if nav == 'aviso' %} aria-current="page"{% endif %}>Aviso legal</a></li>
-          <li><a href="/politica-privacidad/" class="transition-colors hover:text-white{% if nav == 'privacidad' %} font-semibold text-accent{% endif %}"{% if nav == 'privacidad' %} aria-current="page"{% endif %}>Política de privacidad</a></li>
-          <li><a href="/politica-cookies/" class="transition-colors hover:text-white{% if nav == 'cookies' %} font-semibold text-accent{% endif %}"{% if nav == 'cookies' %} aria-current="page"{% endif %}>Política de cookies</a></li>
-          <li><button type="button" data-cookie-settings class="transition-colors hover:text-white">Configurar cookies</button></li>
-        </ul>
-      </div>
-
-      <div class="flex flex-col items-center md:items-end">
-        <h2 class="mb-4 font-display text-base font-semibold text-white">Síguenos</h2>
-        <div class="flex gap-4">
-          <a href="{{ site.facebook }}" target="_blank" rel="noopener" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-primary" aria-label="Facebook (se abre en una pestaña nueva)">
+        <div class="mt-4 flex gap-3">
+          <a href="{{ site.facebook }}" target="_blank" rel="noopener" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/50" aria-label="Facebook (se abre en una pestaña nueva)">
             <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
           </a>
-          <a href="{{ site.instagram }}" target="_blank" rel="noopener" class="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-primary" aria-label="Instagram (se abre en una pestaña nueva)">
+          <a href="{{ site.instagram }}" target="_blank" rel="noopener" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/50" aria-label="Instagram (se abre en una pestaña nueva)">
             <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
         </div>
       </div>
+
+      <nav aria-label="Servicios" class="lg:col-span-3 lg:col-start-6">
+        <h2 class="label !text-slate-400">Servicios</h2>
+        <ul class="mt-3">
+          {%- for s in site.servicios %}
+          <li><a href="{{ s.url }}" class="inline-flex min-h-11 items-center text-white"><span class="link">{{ s.titulo }}</span></a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+
+      <nav aria-label="Zonas" class="lg:col-span-2">
+        <h2 class="label !text-slate-400">Zonas</h2>
+        <ul class="mt-3">
+          <li><a href="/" class="inline-flex min-h-11 items-center text-white"><span class="link">Estepona</span></a></li>
+          {%- for z in site.zonas %}
+          <li><a href="{{ z.url }}" class="inline-flex min-h-11 items-center text-white"><span class="link">{{ z.corto }}</span></a></li>
+          {%- endfor %}
+          <li><a href="/#zonas" class="inline-flex min-h-11 items-center text-white"><span class="link">Costa del Sol</span></a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Legal" class="lg:col-span-2">
+        <h2 class="label !text-slate-400">Legal</h2>
+        <ul class="mt-3">
+          <li><a href="/aviso-legal/" class="inline-flex min-h-11 items-center text-white"{% if nav == 'aviso' %} aria-current="page"{% endif %}><span class="link">Aviso legal</span></a></li>
+          <li><a href="/politica-privacidad/" class="inline-flex min-h-11 items-center text-white"{% if nav == 'privacidad' %} aria-current="page"{% endif %}><span class="link">Privacidad</span></a></li>
+          <li><a href="/politica-cookies/" class="inline-flex min-h-11 items-center text-white"{% if nav == 'cookies' %} aria-current="page"{% endif %}><span class="link">Cookies</span></a></li>
+          <li><button type="button" data-cookie-settings class="inline-flex min-h-11 items-center text-white"><span class="link">Configurar cookies</span></button></li>
+        </ul>
+      </nav>
     </div>
 
-    <div class="border-t border-white/10 pt-8 text-center text-sm text-slate-400">
-      <p>© {{ site.year }} Mudanzas C.Simon. Todos los derechos reservados.</p>
-    </div>
+    <p class="mt-12 border-t border-white/10 pt-6 text-sm text-slate-400">© {{ site.year }} Mudanzas C.Simon. Todos los derechos reservados.</p>
   </div>
 </footer>

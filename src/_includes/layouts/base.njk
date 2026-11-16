@@ -1,5 +1,6 @@
+{%- from "macros.njk" import foto, flecha with context -%}
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,11 +9,11 @@
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/plus-jakarta-sans-var.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preload" href="/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/styles.css?v={{ assets.css }}" />
-  {%- if heroImagen %}
-  <link rel="preload" as="image" href="/fotos/web/{{ heroImagen }}-640.webp" imagesrcset="/fotos/web/{{ heroImagen }}-640.webp 640w, /fotos/web/{{ heroImagen }}-1200.webp 1200w" imagesizes="(min-width: 768px) 50vw, 100vw" fetchpriority="high" />
+  {%- if hero and hero.foto %}
+  <link rel="preload" as="image" href="/fotos/web/{{ hero.foto }}-640.webp" imagesrcset="/fotos/web/{{ hero.foto }}-640.webp {{ fotos[hero.foto].w640 }}w{% if fotos[hero.foto].w960 > fotos[hero.foto].w640 %}, /fotos/web/{{ hero.foto }}-960.webp {{ fotos[hero.foto].w960 }}w{% endif %}{% if fotos[hero.foto].w1200 > fotos[hero.foto].w960 %}, /fotos/web/{{ hero.foto }}-1200.webp {{ fotos[hero.foto].w1200 }}w{% endif %}" imagesizes="(min-width: 1024px) 50vw, 100vw" fetchpriority="high" />
   {%- endif %}
 
   <title>{{ title }}</title>
@@ -23,7 +24,7 @@
   <meta name="robots" content="noindex, follow" />
   {%- else %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_ES" />
@@ -54,7 +55,55 @@
   {% include "partials/header.njk" %}
 
   <main id="main" class="flex-grow">
+    {%- if hero %}
+    {#- Primer bloque de la página: llena la primera pantalla en escritorio y entra una sola vez al cargar #}
+    <section class="pb-12 pt-8 md:pb-16 md:pt-12 lg:flex lg:min-h-[min(calc(100svh-4.5rem),52rem)] lg:items-center">
+      <div class="wrap grid items-center gap-10 lg:grid-cols-12 lg:gap-6">
+        <div class="lg:col-span-6 lg:pr-10" data-enter>
+          {%- if esquema and esquema.tipo != "inicio" %}
+          <nav aria-label="Ruta de navegación" class="label mb-5">
+            <a href="/" class="link inline-block py-2">Inicio</a>
+            <span aria-hidden="true" class="mx-1">/</span>
+            <span aria-current="page">{{ esquema.miga or esquema.nombre }}</span>
+          </nav>
+          {%- endif %}
+          <h1>{{ hero.titulo }}</h1>
+          <p class="lead mt-6">{{ hero.texto }}</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row" data-acciones>
+            <a href="#contacto" class="btn-primary">Pedir presupuesto {{ flecha() }}</a>
+            <a href="{{ site.whatsapp }}?text={{ (waTexto or 'Hola, me interesa un presupuesto para una mudanza') | urlencode }}" target="_blank" rel="noopener" class="btn-secondary">Escribir por WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+          </div>
+          {%- if hero.nota %}
+          <p class="label mt-6">{{ hero.nota }}</p>
+          {%- endif %}
+        </div>
+        <div class="lg:col-span-6">
+          <div class="frame aspect-[4/3] lg:aspect-[5/4]" data-enter-foto>{{ foto(hero.foto, "(min-width: 1024px) 50vw, 100vw", true) }}</div>
+        </div>
+      </div>
+    </section>
+    {%- endif %}
+
 {{ content | safe }}
+
+    {%- if faq %}
+    <section class="section" id="preguntas">
+      <div class="wrap grid gap-8 lg:grid-cols-12 lg:gap-6">
+        <div class="lg:col-span-5 lg:pr-10">
+          <h2>{{ faqTitulo or "Preguntas frecuentes" }}</h2>
+        </div>
+        <dl class="rows lg:col-span-7">
+          {%- for f in faq %}
+          <div>
+            <dt class="text-lg font-medium leading-snug text-ink">{{ f.p }}</dt>
+            <dd class="mt-2">{{ f.r }}</dd>
+          </div>
+          {%- endfor %}
+        </dl>
+      </div>
+    </section>
+    {%- endif %}
+
     {%- if contacto %}
     {% include "partials/contacto.njk" %}
     {%- endif %}

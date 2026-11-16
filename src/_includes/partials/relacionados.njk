@@ -1,0 +1,14 @@
+{#- Enlaces a los demás servicios y a las zonas: ayuda a Google y al visitante a seguir navegando. #}
+<section class="section ground-surface">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{{ relacionadosTitulo or "Más servicios para tu mudanza" }}</h2>
+    </div>
+    {% include "partials/servicios.njk" %}
+    <p class="mt-10 max-w-prose">
+      Trabajamos en <a href="/" class="link-text">Estepona</a>,
+      {%- for z in site.zonas %} <a href="{{ z.url }}" class="link-text">{{ z.corto }}</a>{% if not loop.last %},{% endif %}{% endfor %}
+      y el resto de la <a href="/#zonas" class="link-text">Costa del Sol</a>, y hacemos mudanzas nacionales a toda España.
+    </p>
+  </div>
+</section>

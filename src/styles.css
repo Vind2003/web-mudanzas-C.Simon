@@ -2,76 +2,161 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fuentes alojadas en la propia web (variables: un archivo cubre todos los pesos) */
+/* Fuente alojada en la propia web (variable: un archivo cubre todos los pesos) */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Hanken Grotesk';
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('../fonts/inter-var.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url('../fonts/plus-jakarta-sans-var.woff2') format('woff2');
+  src: url('../fonts/hanken-grotesk-var.woff2') format('woff2');
 }
 
 @layer base {
-  /* Al saltar a una sección (#contacto…) deja hueco para la cabecera fija de escritorio */
-  html { scroll-padding-top: 1.5rem; }
-  @media (min-width: 768px) { html { scroll-padding-top: 6rem; } }
+  /* Al saltar a una sección (#contacto…) deja hueco para la cabecera fija */
+  html { scroll-padding-top: 5.5rem; }
 
   /* Foco del teclado bien visible en toda la web */
   :focus-visible { outline: 2px solid theme('colors.primary.DEFAULT'); outline-offset: 2px; }
-  .bg-ink :focus-visible, footer :focus-visible { outline-color: theme('colors.accent.DEFAULT'); }
+  .ground-dark :focus-visible { outline-color: theme('colors.accent.DEFAULT'); }
 
   body {
-    @apply font-sans text-body bg-white antialiased;
-    line-height: 1.65;
+    @apply bg-white font-sans text-body antialiased;
+    font-size: 1rem;
+    line-height: 1.625;
   }
+
+  /* Titulares: peso normal y tracking ajustado; el tamaño lleva el peso visual */
   h1, h2, h3 {
-    @apply font-display text-ink tracking-tight;
-    line-height: 1.15;
+    @apply text-ink;
+    font-weight: 400;
+    text-wrap: balance;
   }
+  h1 {
+    font-size: clamp(2.375rem, 1.1rem + 4.2vw, 4.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+  }
+  h2 {
+    font-size: clamp(1.875rem, 1.3rem + 2vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  strong { font-weight: 600; }
 }
 
 @layer components {
-  /* Etiqueta pequeña sobre los títulos de sección */
-  .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.08em] text-accent-text;
+  /* Ancho único de contenido: mismos bordes izquierdo y derecho en toda la web */
+  .wrap {
+    width: min(100% - 3rem, 80rem);
+    margin-inline: auto;
   }
+  @media (min-width: 768px) { .wrap { width: min(100% - 6rem, 80rem); } }
+  @media (min-width: 1280px) { .wrap { width: min(100% - 10rem, 80rem); } }
+
+  /* Secciones: se separan con aire o cambio de fondo, sin líneas */
+  .section { padding-block: 5rem 3.5rem; }
+  @media (min-width: 768px) { .section { padding-block: 7rem 4.5rem; } }
+  .section-head { margin-bottom: 2rem; }
+  @media (min-width: 768px) { .section-head { margin-bottom: 3rem; } }
+
+  .ground-surface { @apply bg-surface; }
+  .ground-dark { @apply bg-ink text-slate-300; }
+  .ground-dark h1, .ground-dark h2, .ground-dark h3 { @apply text-white; }
+
+  .lead {
+    @apply text-body;
+    font-size: clamp(1.125rem, 1rem + 0.4vw, 1.25rem);
+    line-height: 1.5;
+    max-width: 62ch;
+  }
+  .label { @apply text-muted; font-size: 0.8125rem; font-weight: 500; line-height: 1.25; }
+
+  /* Botones: suben 1 px al pasar el ratón y se hunden al pulsar */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 font-semibold transition-colors;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-6 text-base font-medium;
+    transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
   }
-  .btn-primary {
-    @apply btn bg-primary text-white hover:bg-primary-dark;
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(1px) scale(0.99); }
+  .btn-primary { @apply btn bg-primary text-white hover:bg-primary-dark; }
+  .btn-secondary { @apply btn border border-ink/20 bg-white text-ink hover:border-ink/40; }
+  .btn-inverse { @apply btn bg-white text-ink hover:bg-slate-100; }
+  .btn-outline-inverse { @apply btn border border-white/30 text-white hover:border-white/60; }
+
+  /* Flecha que avanza 3 px con su enlace o tarjeta */
+  .m-arrow { transition: transform 0.18s ease; }
+  a:hover .m-arrow, .btn:hover .m-arrow { transform: translateX(3px); }
+
+  /* Enlaces sueltos (menú, tarjetas, pie): el subrayado se dibuja al pasar el ratón */
+  .link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.25s ease, color 0.18s ease;
   }
-  .btn-secondary {
-    @apply btn border border-slate-300 text-ink hover:bg-surface;
+  .link:hover, a:hover > .link, button:hover > .link, [aria-current="page"] > .link { background-size: 100% 1px; }
+  /* Enlaces dentro de un párrafo: subrayados siempre, para distinguirlos sin depender del color */
+  .link-text { @apply text-primary underline underline-offset-2 hover:text-primary-dark; }
+
+  /* Tarjetas y marcos de foto */
+  .card { @apply rounded-xl border border-line bg-white; }
+  a.card, .card-link {
+    transition: transform 0.2s ease, border-color 0.2s ease;
   }
-  .card {
-    @apply rounded-xl border border-line bg-white shadow-sm;
-  }
+  a.card:hover, .card-link:hover { transform: translateY(-2px); }
+  .frame { @apply overflow-hidden rounded-xl bg-surface; }
+  .frame > img { @apply h-full w-full object-cover; transition: transform 0.5s ease; }
+  a:hover .frame > img, a.frame:hover > img { transform: scale(1.03); }
+
+  /* Listas en filas: cada fila se cierra con su línea */
+  .rows > * { @apply border-b border-line py-5; }
+  .rows > *:first-child { padding-top: 0; }
+
+  /* Formularios */
   .field {
-    @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20;
+    @apply min-h-12 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-base text-ink outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20;
   }
-  .field-label {
-    @apply mb-1.5 block text-sm font-medium text-ink;
-  }
-  .field[aria-invalid="true"] {
-    @apply border-red-600 ring-2 ring-red-600/20;
-  }
-  .field-error {
-    @apply mt-1.5 text-sm text-red-700;
-  }
+  .field-label { @apply mb-1.5 block text-sm font-medium text-ink; }
+  .field[aria-invalid="true"] { @apply border-red-600 ring-2 ring-red-600/20; }
+  .field-error { @apply mt-1.5 text-sm text-red-700; }
+
+  /* Textos legales */
+  .legal h2 { @apply mb-3 mt-10; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+  .legal p, .legal ul { @apply mt-3; }
+  .legal ul { @apply list-disc space-y-2 pl-5; }
+  .legal a { @apply text-primary underline underline-offset-2 hover:text-primary-dark; }
+  .legal table { @apply mt-4 w-full border-collapse text-sm; }
+  .legal th, .legal td { @apply border border-line p-2 text-left align-top; }
+  .legal th { @apply bg-surface font-medium text-ink; }
 }
 
-/* Aparición suave: solo se oculta si el JS está activo (clase .js en <html>),
-   así las imágenes se ven aunque el script falle. */
-.js .reveal-fade { opacity: 0; transition: opacity 0.8s ease-out; }
-.js .reveal-fade.reveal-visible { opacity: 1; }
+/* Entrada del primer bloque de cada página: una sola vez, al cargar.
+   Solo mueve; nunca deja texto oculto si la animación no llega a ejecutarse. */
+@keyframes entra {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes entra-foto {
+  from { transform: scale(1.04); }
+  to { transform: none; }
+}
+[data-enter] > * { animation: entra 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+[data-enter] > *:nth-child(2) { animation-delay: 0.06s; }
+[data-enter] > *:nth-child(3) { animation-delay: 0.12s; }
+[data-enter] > *:nth-child(4) { animation-delay: 0.18s; }
+[data-enter] > *:nth-child(5) { animation-delay: 0.24s; }
+[data-enter-foto] > img { animation: entra-foto 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* Barra de contacto del móvil: se esconde mientras el botón principal ya está en pantalla */
+.actionbar { transition: transform 0.25s ease; }
+.actionbar[data-oculta] { transform: translateY(110%); }
 
 /* Respeta a quien pide menos animación en su sistema */
 @media (prefers-reduced-motion: reduce) {
@@ -79,7 +164,7 @@
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
   }
-  .js .reveal-fade { opacity: 1; transition: none; }
 }
