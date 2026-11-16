@@ -93,15 +93,17 @@
   .m-arrow { transition: transform 0.18s ease; }
   a:hover .m-arrow, .btn:hover .m-arrow { transform: translateX(3px); }
 
-  /* Enlaces sueltos (menú, tarjetas, pie): el subrayado se dibuja al pasar el ratón */
+  /* Enlaces sueltos (menú, tarjetas, pie): el subrayado aparece al pasar el ratón.
+     Se hace con text-decoration (no con un fondo) para que funcione en varias líneas
+     y para que las herramientas de accesibilidad midan bien el contraste. */
   .link {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size 0.25s ease, color 0.18s ease;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.2s ease, color 0.18s ease;
   }
-  .link:hover, a:hover > .link, button:hover > .link, [aria-current="page"] > .link { background-size: 100% 1px; }
+  .link:hover, a:hover > .link, button:hover > .link, [aria-current="page"] > .link { text-decoration-color: currentColor; }
   /* Enlaces dentro de un párrafo: subrayados siempre, para distinguirlos sin depender del color */
   .link-text { @apply text-primary underline underline-offset-2 hover:text-primary-dark; }
 

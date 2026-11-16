@@ -10,9 +10,9 @@ jobs:
   comprobaciones:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -28,9 +28,15 @@ jobs:
 
       - name: Accesibilidad (pa11y con axe)
         run: |
-          npx --yes http-server _site -p 8080 -s &
-          npx --yes wait-on http://localhost:8080
-          npx --yes pa11y-ci@3 --config .pa11yci.json
+          # Usa el Chrome que ya trae la máquina de GitHub; si no lo hubiera, pa11y descarga uno.
+          CHROME="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          if [ -n "$CHROME" ]; then
+            export CHROME_PATH="$CHROME" PUPPETEER_SKIP_DOWNLOAD=true
+          fi
+          # Sirve la web generada con las mismas cabeceras que Vercel (puerto 8090)
+          npm run preview &
+          npx --yes wait-on --timeout 60000 http://localhost:8090
+          npx --yes pa11y-ci@5 --config .pa11yci.js
 
       - name: Lighthouse (rendimiento, accesibilidad, buenas prácticas y SEO)
         run: npx --yes @lhci/cli@0.14.x autorun

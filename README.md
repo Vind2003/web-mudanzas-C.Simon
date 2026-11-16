@@ -150,8 +150,15 @@ En cada cambio subido a GitHub, `.github/workflows/calidad.yml`:
 
 1. Genera la web.
 2. Valida el HTML (`.htmlvalidate.json`).
-3. Revisa la accesibilidad de todas las páginas con pa11y y axe (`.pa11yci.json`).
+3. Revisa la accesibilidad de todas las páginas con pa11y y axe (`.pa11yci.js`).
 4. Pasa Lighthouse a la portada, un servicio y una zona (`lighthouserc.json`): falla si la
    accesibilidad o el SEO bajan de 95/100 y avisa si el rendimiento o las buenas prácticas bajan.
 
 Los resultados se ven en la pestaña **Actions** del repositorio en GitHub.
+
+Para pasar la prueba de accesibilidad en local:
+
+```bash
+npm run build && npm run preview        # en una terminal (puerto 8090)
+npx pa11y-ci@5 --config .pa11yci.js     # en otra
+```
