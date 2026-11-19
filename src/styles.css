@@ -86,8 +86,6 @@
   .btn:active { transform: translateY(1px) scale(0.99); }
   .btn-primary { @apply btn bg-primary text-white hover:bg-primary-dark; }
   .btn-secondary { @apply btn border border-ink/20 bg-white text-ink hover:border-ink/40; }
-  .btn-inverse { @apply btn bg-white text-ink hover:bg-slate-100; }
-  .btn-outline-inverse { @apply btn border border-white/30 text-white hover:border-white/60; }
 
   /* Flecha que avanza 3 px con su enlace o tarjeta */
   .m-arrow { transition: transform 0.18s ease; }
@@ -109,10 +107,10 @@
 
   /* Tarjetas y marcos de foto */
   .card { @apply rounded-xl border border-line bg-white; }
-  a.card, .card-link {
+  a.card {
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
-  a.card:hover, .card-link:hover { transform: translateY(-2px); }
+  a.card:hover { transform: translateY(-2px); }
   .frame { @apply overflow-hidden rounded-xl bg-surface; }
   .frame > img { @apply h-full w-full object-cover; transition: transform 0.5s ease; }
   a:hover .frame > img, a.frame:hover > img { transform: scale(1.03); }

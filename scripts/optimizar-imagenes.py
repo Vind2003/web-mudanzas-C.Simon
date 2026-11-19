@@ -31,8 +31,13 @@ def fotos():
             continue
         img = abrir(ruta)
         nombre = ruta.stem.lower()
+        anterior = 0
         for ancho in ANCHOS:
             w = min(ancho, img.width)
+            if w == anterior:
+                # La foto original es más pequeña que este ancho: sería una copia idéntica
+                break
+            anterior = w
             h = round(img.height * w / img.width)
             salida = DESTINO / f"{nombre}-{ancho}.webp"
             img.resize((w, h), Image.LANCZOS).save(salida, "WEBP", quality=CALIDAD, method=6)
@@ -95,8 +100,10 @@ def manifiesto():
     for ruta in sorted(DESTINO.glob("*-640.webp")):
         nombre = ruta.name[:-len("-640.webp")]
         w, h = Image.open(ruta).size
-        wm = Image.open(DESTINO / f"{nombre}-960.webp").size[0]
-        wg = Image.open(DESTINO / f"{nombre}-1200.webp").size[0]
+        # Si una versión no existe (foto original pequeña), se usa el ancho de la anterior
+        medio, grande = DESTINO / f"{nombre}-960.webp", DESTINO / f"{nombre}-1200.webp"
+        wm = Image.open(medio).size[0] if medio.exists() else w
+        wg = Image.open(grande).size[0] if grande.exists() else wm
         datos[nombre] = {"w640": w, "h640": h, "w960": wm, "w1200": wg}
     salida = RAIZ / "src" / "_data" / "fotos.json"
     salida.write_text(json.dumps(datos, indent=2), encoding="utf-8")

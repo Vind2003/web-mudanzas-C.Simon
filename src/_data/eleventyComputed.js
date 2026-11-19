@@ -34,6 +34,9 @@ module.exports = {
           addressRegion: 'Málaga',
           addressCountry: 'ES',
         },
+        // Horario: la web no lo publica. Cuando lo tengáis, añadid aquí
+        // openingHoursSpecification (días y horas) para que Google lo muestre.
+        hasMap: site.mapa,
         areaServed: AREAS,
         priceRange: '€€',
         sameAs: [site.facebook, site.instagram],
