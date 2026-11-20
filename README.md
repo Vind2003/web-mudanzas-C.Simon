@@ -114,8 +114,10 @@ contacto:
     placeholder: "Ej.: muebles de un piso de 2 habitaciones…"
 ```
 
-Los envíos llegan por correo a través de [Formspree](https://formspree.io/). El campo oculto
-`_gotcha` frena el spam de robots.
+El formulario no envía nada a ningún servidor: compone el mensaje con los campos que tengan
+`data-wa` y abre WhatsApp para que el cliente lo envíe desde su cuenta. Antes pasa un filtro
+antispam en `js/site.js`: campo trampa oculto, tiempo mínimo de 4 s, nada de enlaces, HTML ni
+palabras típicas de spam, y como mucho 3 envíos cada 10 minutos por navegador.
 
 **Añadir fotos:** copia la original en `fotos/originales/`, ejecuta `npm run build:img` (crea las
 versiones de 640, 960 y 1200 px y actualiza `fotos.json`), añade su descripción en

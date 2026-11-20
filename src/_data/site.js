@@ -6,7 +6,6 @@ module.exports = {
   telefonoTexto: '622 115 760', // espacios que no parten el número
   email: 'Mudanzas.c.simon@gmail.com',
   whatsapp: 'https://wa.me/34622115760',
-  formspree: 'https://formspree.io/f/xldqdlqn',
   facebook: 'https://www.facebook.com/mudanzas.c.simon',
   instagram: 'https://www.instagram.com/mudanzascsimon/',
   mapa: 'https://www.google.com/maps/search/?api=1&query=Mudanzas+C.Simon+Estepona',

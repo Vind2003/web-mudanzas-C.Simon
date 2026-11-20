@@ -24,7 +24,7 @@ Empresa local y familiar que lo hace todo con el mismo equipo: mudanza, embalaje
 
 ## Operating Context
 
-- Contacto: teléfono 622 115 760, WhatsApp al mismo número, formulario (Formspree), correo Mudanzas.c.simon@gmail.com.
+- Contacto: teléfono 622 115 760, WhatsApp al mismo número, formulario que abre WhatsApp con el mensaje ya escrito (no hay servidor ni Formspree), correo Mudanzas.c.simon@gmail.com.
 - Visita a la vivienda sin coste antes de dar precio.
 - Base en Estepona (Calle Extremadura). Zona habitual: Estepona, Manilva, Casares, Benahavís, Marbella, San Pedro Alcántara y resto de la Costa del Sol hasta Málaga.
 
