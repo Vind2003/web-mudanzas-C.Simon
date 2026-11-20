@@ -4,11 +4,11 @@
   { t: "Visita y presupuesto cerrado", d: "Vemos la vivienda sin coste ni compromiso y te damos un precio que no cambia." },
   { t: "Hacemos la mudanza", d: "Nos ocupamos del desmontaje, el embalaje, el transporte y el montaje." }
 ] -%}
-<ol class="grid gap-8 md:grid-cols-3 md:gap-6">
+<ol class="grid gap-5 md:grid-cols-3 md:gap-6">
   {%- for paso in lista %}
-  <li class="border-t border-ink/15 pt-5">
-    <p class="label">Paso {{ loop.index }}</p>
-    <h3 class="mt-2">{{ paso.t }}</h3>
+  <li class="card p-7">
+    <span class="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-lg font-bold text-white" aria-hidden="true">{{ loop.index }}</span>
+    <h3 class="mt-5"><span class="sr-only">Paso {{ loop.index }}: </span>{{ paso.t }}</h3>
     <p class="mt-2">{{ paso.d }}</p>
   </li>
   {%- endfor %}

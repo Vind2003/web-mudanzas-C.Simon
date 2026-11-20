@@ -10,6 +10,11 @@ module.exports = {
   facebook: 'https://www.facebook.com/mudanzas.c.simon',
   instagram: 'https://www.instagram.com/mudanzascsimon/',
   mapa: 'https://www.google.com/maps/search/?api=1&query=Mudanzas+C.Simon+Estepona',
+  // Ficha de Google (Place ID): nota y opiniones reales. Actualizad el número cuando cambie.
+  resenas: 'https://search.google.com/local/reviews?placeid=ChIJ1fE9i4L1nWIRuOe4CMVSFXw',
+  escribirResena: 'https://search.google.com/local/writereview?placeid=ChIJ1fE9i4L1nWIRuOe4CMVSFXw',
+  googleNota: '5,0',
+  googleOpiniones: 24,
   year: new Date().getFullYear(),
 
   // Menú principal: "clave" se compara con la variable "nav" de cada página

@@ -1,15 +1,15 @@
 {#- Tarjetas de servicios con su foto. En una página de servicio no muestra el propio. #}
 {%- from "macros.njk" import foto, flecha with context -%}
 {%- set propias = nav in ["hogar", "embalaje", "guardamuebles", "punto"] -%}
-<div class="grid gap-4 sm:grid-cols-2 md:gap-6 {% if propias %}lg:grid-cols-3{% else %}lg:grid-cols-4{% endif %}">
+<div class="grid gap-5 sm:grid-cols-2 md:gap-6 {% if propias %}lg:grid-cols-3{% else %}lg:grid-cols-4{% endif %}">
   {%- for s in site.servicios %}
   {%- if s.clave != nav %}
-  <a href="{{ s.url }}" class="card flex flex-col overflow-hidden">
+  <a href="{{ s.url }}" class="card group flex flex-col overflow-hidden">
     <div class="frame aspect-[4/3] rounded-none">{{ foto(s.foto, "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw") }}</div>
     <div class="flex flex-1 flex-col p-6">
-      <h3>{{ s.titulo }}</h3>
+      <h3 class="group-hover:text-primary">{{ s.titulo }}</h3>
       <p class="mt-2">{{ s.texto }}</p>
-      <span class="mt-auto inline-flex items-center gap-2 pt-5 font-medium text-primary">Ver el servicio {{ flecha() }}</span>
+      <span class="mt-auto inline-flex items-center gap-2 pt-5 font-semibold text-primary">Ver el servicio {{ flecha() }}</span>
     </div>
   </a>
   {%- endif %}

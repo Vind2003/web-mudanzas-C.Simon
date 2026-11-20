@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "name": "Mudanzas C.Simon",
+  "recorded": "2026-11-20",
+  "source": ["tailwind.config.js", "src/styles.css", "src/_includes/macros.njk", "src/_includes/layouts/base.njk", "src/_includes/layouts/servicio.njk", "src/_includes/partials/", "src/index.njk"],
+  "world": "canon",
+  "seed": "284610967b567f4f",
+  "colors": {
+    "ink": "#0F1B2D",
+    "body": "#334155",
+    "muted": "#566579",
+    "surface": "#F6F8FB",
+    "sky": "#EAF1FA",
+    "line": "#E3E8EF",
+    "white": "#FFFFFF",
+    "primary": "#0B4A9E",
+    "primary-dark": "#083A7D",
+    "accent": "#F28C28",
+    "accent-dark": "#E07813",
+    "accent-text": "#C2410C",
+    "whatsapp": "#25D366",
+    "hero-overlay": "#0A1628"
+  },
+  "typography": {
+    "family": "\"Hanken Grotesk\", system-ui, sans-serif",
+    "source": "fonts/hanken-grotesk-var.woff2 (variable 100-900, self-hosted)",
+    "h1": { "size": "clamp(2.5rem, 1.4rem + 3.6vw, 4.25rem)", "weight": 650, "lineHeight": 1.05, "tracking": "-0.03em" },
+    "h2": { "size": "clamp(1.875rem, 1.35rem + 1.7vw, 2.75rem)", "weight": 650, "lineHeight": 1.12, "tracking": "-0.025em" },
+    "h3": { "size": "1.3125rem", "weight": 650, "lineHeight": 1.3, "tracking": "-0.01em" },
+    "lead": { "size": "clamp(1.1875rem, 1.05rem + 0.4vw, 1.3125rem)", "lineHeight": 1.55, "maxWidth": "60ch" },
+    "body": { "size": "1.125rem", "lineHeight": 1.65, "numeric": "tabular-nums" },
+    "button": { "size": "1.0625rem", "weight": 600 },
+    "label": { "size": "0.9375rem", "weight": 500, "lineHeight": 1.3 }
+  },
+  "rounded": { "button": "0.5rem", "field": "0.5rem", "card": "1rem", "frame": "1rem", "pill": "9999px" },
+  "spacing": {
+    "wrap": { "base": "min(100% - 2.5rem, 76rem)", "md": "min(100% - 5rem, 76rem)" },
+    "section": { "base": "4.5rem", "md": "6.5rem" },
+    "sectionHead": { "base": "2.25rem", "md": "3rem", "maxWidth": "46rem" },
+    "controlMinHeight": "3.25rem",
+    "scrollPaddingTop": "6rem"
+  },
+  "elevation": {
+    "cardHover": "0 18px 40px -24px rgb(15 27 45 / 0.45)",
+    "form": "0 24px 60px -36px rgb(15 27 45 / 0.45)",
+    "cta": "0 6px 18px -8px rgb(224 120 19 / 0.7)",
+    "whatsapp": "0 10px 28px -8px rgb(7 94 84 / 0.6)"
+  },
+  "motion": {
+    "ease": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+    "enterEase": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "durations": { "control": "0.18s", "card": "0.25s", "photoZoom": "0.6s", "enter": "0.7s", "enterPhoto": "1.4s" },
+    "reducedMotion": "all transitions and animations collapsed to 0.01ms"
+  },
+  "components": {
+    "btn-cta": { "bg": "accent", "fg": "ink", "hover": "accent-dark", "use": "quote request only" },
+    "btn-primary": { "bg": "primary", "fg": "white", "hover": "primary-dark" },
+    "btn-secondary": { "bg": "white", "fg": "primary", "border": "2px primary/25" },
+    "btn-light": { "fg": "white", "border": "2px white/70", "use": "on photo or dark ground" },
+    "card": { "bg": "white", "border": "1px line", "radius": "card" },
+    "frame": { "bg": "surface", "radius": "card", "ratios": ["4/5", "5/6", "3/4", "4/3"] },
+    "icono": { "size": "3rem", "bg": "sky", "fg": "primary", "icon": "24px line, stroke 1.75" },
+    "field": { "minHeight": "3.25rem", "border": "1px slate-300", "focus": "border primary, ring 4px primary/15", "error": "red-600 / red-700" },
+    "ground-photo": {
+      "overlayDesktop": "linear-gradient(90deg, rgb(10 22 40 / 0.92) 0%, rgb(10 22 40 / 0.78) 42%, rgb(10 22 40 / 0.25) 100%)",
+      "overlayMobile": "linear-gradient(180deg, rgb(10 22 40 / 0.15) 0%, rgb(10 22 40 / 0.6) 32%, rgb(10 22 40 / 0.9) 58%)",
+      "mobileObjectPosition": "72% center"
+    },
+    "trust-strip": { "desktop": "4 columns with icono", "mobile": "2x2, icons hidden below 640px" },
+    "faq": { "element": "details", "toggle": "plus rotates 45deg", "firstOpen": true },
+    "wa-burbuja": { "size": "4rem", "bg": "whatsapp", "position": "fixed bottom-right", "label": "desktop hover/focus" }
+  },
+  "rules": [
+    "one-clear-action-per-section",
+    "orange-only-for-quote-cta-with-ink-text",
+    "line-icons-only-in-trust-strip-contact-cards-checklists",
+    "no-eyebrows",
+    "no-fake-testimonials-only-real-google-rating",
+    "own-photos-only",
+    "whatsapp-bubble-on-every-screen",
+    "mobile-trust-strip-2x2-no-icons",
+    "mobile-hero-gradient-keeps-photo-top-visible",
+    "body-18px-min-content-15px"
+  ],
+  "notCanonized": [
+    "Mobile: the WhatsApp bubble overlaps the right column of the trust strip in the first viewport (mobile-top.png).",
+    "Rating band uses bg-primary with !text-white overrides instead of a ground-* class.",
+    "Form shadow and WhatsApp green are arbitrary values in templates, not Tailwind tokens."
+  ]
+}

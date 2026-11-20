@@ -6,11 +6,10 @@ noindex: true
 eleventyExcludeFromCollections: true
 ---
 {%- from "macros.njk" import flecha with context -%}
-    <section class="section">
+    <section class="section ground-surface">
       <div class="wrap">
         <div class="max-w-3xl" data-enter>
-          <p class="label">Error 404</p>
-          <h1 class="mt-4">Esta página no existe o se ha mudado</h1>
+          <h1>Esta página no existe o se ha mudado <span class="sr-only">(error 404)</span></h1>
           <p class="lead mt-6">Puede que el enlace esté mal escrito o que la página ya no exista.</p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="/" class="btn-primary">Ir al inicio {{ flecha() }}</a>

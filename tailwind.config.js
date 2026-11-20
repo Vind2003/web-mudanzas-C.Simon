@@ -15,9 +15,11 @@ module.exports = {
           dark: '#083A7D',       // hover
         },
         accent: {
-          DEFAULT: '#F28C28',    // detalles y fondos oscuros
+          DEFAULT: '#F28C28',    // botón de presupuesto (con texto ink: 7,3:1)
+          dark: '#E07813',       // hover del botón de presupuesto
           text: '#C2410C',       // texto naranja sobre blanco (5,2:1)
         },
+        sky: '#EAF1FA',          // azul muy claro para bandas suaves
       },
       fontFamily: {
         sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],

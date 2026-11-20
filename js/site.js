@@ -81,23 +81,6 @@
     });
   });
 
-  // Barra de contacto del móvil: se esconde mientras los botones del primer bloque
-  // están en pantalla, para no mostrar la misma acción dos veces.
-  var barra = document.querySelector('[data-actionbar]');
-  var acciones = document.querySelector('[data-acciones]');
-  if (barra && acciones && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      var visible = entries[0].isIntersecting;
-      if (visible && !barra.contains(document.activeElement)) {
-        barra.setAttribute('data-oculta', '');
-        barra.setAttribute('inert', '');
-      } else {
-        barra.removeAttribute('data-oculta');
-        barra.removeAttribute('inert');
-      }
-    }).observe(acciones);
-  }
-
   // Menú móvil: botón que abre y cierra la navegación
   var menuBtn = document.querySelector('[data-menu-toggle]');
   var menu = document.getElementById('menu-principal');

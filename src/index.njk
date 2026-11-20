@@ -11,7 +11,7 @@ esquema:
   tipo: "inicio"
 hero:
   titulo: "Mudanzas en Estepona y la Costa del Sol"
-  texto: "Desmontamos, embalamos y transportamos tu casa u oficina desde Estepona a cualquier punto de Málaga y de España, con presupuesto cerrado y visita sin compromiso."
+  texto: "Mudanzas de casa y oficina por toda la Costa del Sol, el resto de España y el extranjero, con visita y presupuesto sin compromiso."
   foto: "camion-lateral"
   nota: "Respondemos en menos de 24 horas."
 faqTitulo: "Preguntas frecuentes sobre mudanzas en Estepona"
@@ -24,6 +24,10 @@ faq:
     r: "Sí. Desmontamos los muebles en origen, los protegemos con mantas acolchadas, plástico de burbuja y cajas reforzadas, y los montamos en tu nueva casa."
   - p: "¿Tenéis guardamuebles?"
     r: "Sí. Puedes guardar tus muebles por días, meses o años en instalaciones vigiladas las 24 horas, con un inventario de todo lo que entra."
+  - p: "¿Hacéis mudanzas internacionales y portes?"
+    r: "Sí. Hacemos mudanzas a otros países y también portes, es decir, transportes pequeños: un mueble, unas cajas o una moto."
+  - p: "Do you speak English?"
+    r: "Yes. We can help you in English by phone, WhatsApp or email."
   - p: "¿Os lleváis los muebles que ya no quiero?"
     r: "Sí. Retiramos muebles, electrodomésticos y enseres y los llevamos a un punto limpio autorizado. También vaciamos pisos, locales y trasteros."
   - p: "¿Cómo pido presupuesto?"
@@ -44,7 +48,7 @@ contacto:
     etiqueta: "Detalles"
     placeholder: "¿Hay ascensor? ¿Necesitas embalaje?"
 ---
-{%- from "macros.njk" import foto, flecha, galeria, filas with context -%}
+{%- from "macros.njk" import foto, flecha, galeria, filas, icono, estrellas with context -%}
 
     <section class="section ground-surface" id="servicios">
       <div class="wrap">
@@ -53,101 +57,99 @@ contacto:
           <p class="lead mt-4">Contrata la mudanza completa o solo la parte que necesites.</p>
         </div>
         {% include "partials/servicios.njk" %}
+        <div class="mt-8 flex flex-col gap-4 rounded-2xl border border-line bg-white p-6 sm:flex-row sm:items-center sm:justify-between md:p-7">
+          <div>
+            <p><strong class="text-ink">También hacemos portes y mudanzas internacionales.</strong> Un mueble, unas cajas o una casa entera a otro país.</p>
+          </div>
+          <a href="#contacto" class="btn-secondary shrink-0">Pedir presupuesto</a>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="zonas">
-      <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
-        <div class="lg:col-span-6 lg:pr-10">
-          <h2>Mudanzas en Estepona, Marbella y toda la Costa del Sol</h2>
-          <p class="lead mt-5">Somos una empresa de mudanzas con base en Estepona. Desde aquí hacemos mudanzas locales por toda la costa y mudanzas nacionales a cualquier provincia de España.</p>
-
-          <div class="mt-10 grid gap-8 sm:grid-cols-2">
-            <div>
-              <h3>Estepona y alrededores</h3>
-              <ul class="mt-3 space-y-1.5">
-                {%- for m in site.municipios.cercanos %}
-                <li>{{ m }}</li>
-                {%- endfor %}
-              </ul>
-            </div>
-            <div>
-              <h3>Resto de la Costa del Sol</h3>
-              <ul class="mt-3 space-y-1.5">
-                {%- for m in site.municipios.costa %}
-                <li>{{ m }}</li>
-                {%- endfor %}
-              </ul>
-            </div>
-          </div>
-
-          <ul class="mt-10 flex flex-col gap-1 sm:flex-row sm:gap-8">
-            {%- for z in site.zonas %}
-            <li><a href="{{ z.url }}" class="inline-flex min-h-11 items-center gap-2 font-medium text-primary"><span class="link">Mudanzas en {{ z.corto }}</span> {{ flecha() }}</a></li>
-            {%- endfor %}
+    <section class="section" id="por-que">
+      <div class="wrap grid items-center gap-12 lg:grid-cols-12 lg:gap-6">
+        <div class="lg:col-span-6 lg:pr-12">
+          <h2>Una empresa familiar de Estepona</h2>
+          <p class="lead mt-4">Hablas directamente con quienes hacen tu mudanza, de principio a fin.</p>
+          <ul class="mt-10 space-y-7 border-l border-line pl-6">
+            <li>
+              <h3>Trato cercano y familiar</h3>
+              <p class="mt-1.5">Somos una empresa local. El mismo equipo te atiende, visita tu casa y hace la mudanza.</p>
+            </li>
+            <li>
+              <h3>Todo con la misma empresa</h3>
+              <p class="mt-1.5">Mudanza, embalaje, guardamuebles, portes y retirada de muebles viejos, sin tener que coordinar a nadie más.</p>
+            </li>
+            <li>
+              <h3>Cuidado con lo frágil</h3>
+              <p class="mt-1.5">Embalamos pieza a pieza con mantas, plástico de burbuja y cajas reforzadas para que todo llegue como salió.</p>
+            </li>
           </ul>
         </div>
-        <div class="lg:col-span-5 lg:col-start-8">
-          <div class="frame aspect-[4/5]">{{ foto("furgoneta-por-delante", "(min-width: 1024px) 40vw, 100vw") }}</div>
+        <div class="lg:col-span-6">
+          <div class="frame aspect-[4/5] lg:aspect-[5/6]">{{ foto("camion-lleno-trabajador", "(min-width: 1024px) 45vw, 100vw") }}</div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="opiniones">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Opiniones de clientes</h2>
+    <section class="section bg-primary text-white" id="opiniones" aria-labelledby="opiniones-titulo">
+      <div class="wrap grid items-center gap-10 lg:grid-cols-12 lg:gap-6">
+        <div class="lg:col-span-7 lg:pr-10">
+          {{ estrellas("h-8 w-8") }}
+          <h2 id="opiniones-titulo" class="mt-5 !text-white">Nuestros clientes nos dan un {{ site.googleNota }} sobre 5 en Google</h2>
+          <p class="lead mt-4 !text-white/90">{{ site.googleOpiniones }} opiniones reales en Google. Léelas antes de decidir.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="{{ site.resenas }}" target="_blank" rel="noopener" class="btn bg-white text-primary hover:bg-sky">Leer las opiniones en Google<span class="sr-only"> (se abre en una pestaña nueva)</span> {{ flecha() }}</a>
+          </div>
         </div>
-        <div class="grid gap-4 md:gap-6 lg:grid-cols-6">
-          {%- set opiniones = [
-            { texto: "Contraté el servicio completo para mudarme desde el puerto de Estepona al centro. El embalaje de la vajilla fue impecable. Ni una copa rota.", nombre: "Laura González", tipo: "Mudanza local" },
-            { texto: "Necesitaba guardar mis muebles durante dos meses por una reforma. El guardamuebles está limpísimo y muy seguro. Muy recomendados.", nombre: "Carlos Martínez", tipo: "Guardamuebles" },
-            { texto: "Puntualidad británica. Llegaron a las 8:00 en punto y a las 14:00 ya estaba todo montado en mi nueva casa en Cancelada. Eficiencia pura.", nombre: "Ana Ruiz", tipo: "Mudanza exprés" },
-            { texto: "Tenía un piano de cola y me daba terror moverlo. Trajeron una grúa elevadora y lo manejaron con un cuidado increíble. Profesionales de verdad.", nombre: "David Fenwick", tipo: "Transporte especial" },
-            { texto: "El precio fue exactamente el del presupuesto inicial. Se encargaron de llevarse los muebles viejos al punto limpio. Un alivio total.", nombre: "Sofía Mendez", tipo: "Gestión integral" }
-          ] -%}
-          {%- for o in opiniones %}
-          <figure class="card flex flex-col p-6 md:p-8 {% if loop.index <= 2 %}lg:col-span-3{% else %}lg:col-span-2{% endif %}">
-            <blockquote class="{% if loop.index <= 2 %}text-xl{% else %}text-lg{% endif %} leading-snug text-ink">
-              <p>«{{ o.texto }}»</p>
-            </blockquote>
-            <figcaption class="mt-auto pt-6">
-              <span class="block font-medium text-ink">{{ o.nombre }}</span>
-              <span class="label mt-1 block">{{ o.tipo }}</span>
-            </figcaption>
-          </figure>
-          {%- endfor %}
+        <div class="grid grid-cols-2 gap-4 lg:col-span-5">
+          <div class="frame aspect-[3/4]">{{ foto("ordenando-camion-trabajador", "(min-width: 1024px) 20vw, 50vw") }}</div>
+          <div class="frame mt-10 aspect-[3/4]">{{ foto("embalaje-mueblesgrandes", "(min-width: 1024px) 20vw, 50vw") }}</div>
         </div>
       </div>
     </section>
 
-    <section class="section ground-surface" id="metodo">
+    <section class="section" id="metodo">
       <div class="wrap">
         <div class="section-head">
           <h2>Cómo hacemos tu mudanza</h2>
         </div>
         {% include "partials/pasos.njk" %}
-        <div class="mt-12 md:mt-16">
-          {{ galeria(["camion-detras", "montaje-mueble-grande", "camion-dentro-ordenado", "embalaje-mueblesgrandes", "ordenando-camion-trabajador", "mudanza-sillas"], 3) }}
+        <div class="mt-12 md:mt-14">
+          {{ galeria(["camion-detras", "montaje-mueble-grande", "camion-dentro-ordenado", "mudanza-sillas"]) }}
         </div>
       </div>
     </section>
 
-    <section class="section" id="incluye">
+    <section class="section ground-surface" id="zonas">
       <div class="wrap grid gap-10 lg:grid-cols-12 lg:gap-6">
-        <div class="lg:col-span-6 lg:pr-10">
-          <h2>Qué incluye cada mudanza</h2>
-          <div class="mt-10">
-            {{ filas([
-              { t: "Presupuesto cerrado", d: "Lo que firmamos es lo que pagas, sin extras de última hora." },
-              { t: "Material de protección", d: "Mantas acolchadas, plástico de burbuja de triple capa y cajas reforzadas." },
-              { t: "Camiones y furgonetas", d: "Vehículos para mudanzas grandes y pequeñas." },
-              { t: "Vaciados", d: "Vaciamos viviendas, locales, trasteros, garajes, naves industriales y hoteles." }
-            ]) }}
-          </div>
+        <div class="lg:col-span-5 lg:pr-10">
+          <h2>Mudanzas en Estepona, Marbella y toda la Costa del Sol</h2>
+          <p class="lead mt-5">Somos una empresa de mudanzas con base en Estepona. Desde aquí hacemos mudanzas locales por toda la costa y mudanzas nacionales e internacionales.</p>
+          <ul class="mt-8 space-y-1">
+            {%- for z in site.zonas %}
+            <li><a href="{{ z.url }}" class="inline-flex min-h-12 items-center gap-2 text-lg font-semibold text-primary"><span class="link">Mudanzas en {{ z.corto }}</span> {{ flecha() }}</a></li>
+            {%- endfor %}
+          </ul>
         </div>
-        <div class="lg:col-span-5 lg:col-start-8">
-          <div class="frame aspect-[4/5]">{{ foto("camion-lleno-trabajador", "(min-width: 1024px) 40vw, 100vw") }}</div>
+        <div class="grid gap-5 lg:col-span-6 lg:col-start-7">
+          <div class="card p-7">
+            <h3>Estepona y alrededores</h3>
+            <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-base sm:gap-x-6 sm:text-lg">
+              {%- for m in site.municipios.cercanos %}
+              <li class="flex items-center gap-2">{{ icono("check", "h-4 w-4 shrink-0 text-primary") }}{{ m }}</li>
+              {%- endfor %}
+            </ul>
+          </div>
+          <div class="card p-7">
+            <h3>Resto de la Costa del Sol</h3>
+            <ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-base sm:gap-x-6 sm:text-lg">
+              {%- for m in site.municipios.costa %}
+              <li class="flex items-center gap-2">{{ icono("check", "h-4 w-4 shrink-0 text-primary") }}{{ m }}</li>
+              {%- endfor %}
+            </ul>
+          </div>
+          <p>¿Te mudas a otra provincia o a otro país? También lo hacemos: <a href="#contacto" class="link-text">pide presupuesto</a>.</p>
         </div>
       </div>
     </section>

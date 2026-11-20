@@ -1,30 +1,37 @@
-{#- Cabecera común: fija, opaca y con una línea fina debajo. En móvil, botón de menú. #}
+{#- Cabecera común: fija, blanca, con el teléfono siempre a la vista. En móvil, botón de menú. #}
+{%- from "macros.njk" import icono with context -%}
 <header class="sticky top-0 z-50 border-b border-line bg-white">
-  <div class="wrap flex min-h-[4.5rem] flex-wrap items-center justify-between gap-x-6">
-    <a href="/" class="flex items-center gap-3 py-2">
-      <img src="/fotos/web/logo-168.webp" width="112" height="168" alt="" class="h-11 w-auto rounded-md">
-      <span class="text-lg font-medium leading-tight tracking-tight text-ink">Mudanzas C.Simon</span>
+  <div class="wrap flex min-h-[4.75rem] flex-wrap items-center justify-between gap-x-3 sm:min-h-[5.5rem] sm:gap-x-6">
+    <a href="/" class="flex min-w-0 items-center gap-2.5 py-2 sm:gap-3">
+      <img src="/fotos/web/logo-168.webp" width="112" height="168" alt="" class="h-12 w-auto shrink-0 rounded-md sm:h-14">
+      <span class="leading-tight">
+        <span class="block text-lg font-bold tracking-tight text-ink sm:text-xl">Mudanzas C.Simon</span>
+        <span class="block text-[0.8125rem] text-muted sm:text-sm">Estepona · Costa del Sol</span>
+      </span>
     </a>
 
-    <button type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-ink/20 text-ink lg:hidden">
-      <svg data-menu-icon="abrir" aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
-      <svg data-menu-icon="cerrar" aria-hidden="true" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
-      <span class="sr-only">Menú</span>
-    </button>
+    <div class="flex shrink-0 items-center gap-2 lg:hidden">
+      <a href="tel:{{ site.telefono }}" class="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-sky text-primary" aria-label="Llamar al {{ site.telefonoTexto }}">{{ icono("telefono", "h-6 w-6") }}</a>
+      <button type="button" data-menu-toggle aria-expanded="false" aria-controls="menu-principal"
+              class="inline-flex h-12 w-12 items-center justify-center rounded-lg border-2 border-primary/20 text-ink">
+        <svg data-menu-icon="abrir" aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg data-menu-icon="cerrar" aria-hidden="true" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        <span class="sr-only">Menú</span>
+      </button>
+    </div>
 
     <nav id="menu-principal" aria-label="Principal" class="hidden w-full lg:block lg:w-auto">
-      <ul class="flex flex-col border-t border-line py-3 text-[0.9375rem] font-medium text-ink lg:flex-row lg:items-center lg:gap-7 lg:border-0 lg:py-0">
+      <ul class="flex flex-col border-t border-line py-3 text-lg font-semibold text-ink lg:flex-row lg:items-center lg:gap-7 lg:border-0 lg:py-0 lg:text-base">
         {%- for item in site.nav %}
         <li>
-          <a href="{{ item.url }}" class="flex min-h-14 items-center lg:min-h-0"{% if nav == item.clave %} aria-current="page"{% endif %}><span class="link">{{ item.texto }}</span></a>
+          <a href="{{ item.url }}" class="flex min-h-14 items-center lg:min-h-0"{% if nav == item.clave %} aria-current="page"{% endif %}><span class="link{% if nav == item.clave %} text-primary{% endif %}">{{ item.texto }}</span></a>
         </li>
         {%- endfor %}
-        <li class="lg:ml-3">
-          <a href="tel:{{ site.telefono }}" class="flex min-h-14 items-center lg:min-h-0"><span class="link">{{ site.telefonoTexto }}</span></a>
+        <li class="hidden lg:ml-2 lg:block">
+          <a href="tel:{{ site.telefono }}" class="flex items-center gap-2 text-primary">{{ icono("telefono", "h-5 w-5") }}<span class="link">{{ site.telefonoTexto }}</span></a>
         </li>
-        <li class="pb-2 pt-2 lg:p-0">
-          <a href="{% if contacto %}#contacto{% else %}/#contacto{% endif %}" class="btn-primary w-full lg:w-auto">Pedir presupuesto</a>
+        <li class="pb-2 pt-3 lg:p-0">
+          <a href="{% if contacto %}#contacto{% else %}/#contacto{% endif %}" class="btn-cta w-full lg:w-auto">Pedir presupuesto</a>
         </li>
       </ul>
     </nav>

@@ -1,4 +1,4 @@
-{%- from "macros.njk" import foto, flecha with context -%}
+{%- from "macros.njk" import foto, flecha, icono, estrellas with context -%}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -49,38 +49,48 @@
   {%- endif %}
 </head>
 
-<body class="flex min-h-screen flex-col pb-[4.5rem] md:pb-0">
+<body class="flex min-h-screen flex-col">
   <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[1100] rounded-lg bg-primary px-3 py-2 text-white" href="#main">Saltar al contenido</a>
 
   {% include "partials/header.njk" %}
 
   <main id="main" class="flex-grow">
     {%- if hero %}
-    {#- Primer bloque de la página: llena la primera pantalla en escritorio y entra una sola vez al cargar #}
-    <section class="pb-12 pt-8 md:pb-16 md:pt-12 lg:flex lg:min-h-[min(calc(100svh-4.5rem),52rem)] lg:items-center">
-      <div class="wrap grid items-center gap-10 lg:grid-cols-12 lg:gap-6">
-        <div class="lg:col-span-6 lg:pr-10" data-enter>
+    {#- Primer bloque: foto real a sangre con degradado; el texto entra una sola vez al cargar #}
+    <section class="ground-photo">
+      <div class="fondo" data-enter-foto>{{ foto(hero.foto, "100vw", true) }}</div>
+      <div class="wrap flex flex-col justify-end pb-14 pt-28 md:min-h-0 md:justify-center md:pb-24 md:pt-24 {% if esquema and esquema.tipo == 'inicio' %}min-h-[34rem] lg:min-h-[min(calc(100svh-5.5rem-6.5rem),44rem)]{% else %}min-h-[28rem] lg:min-h-[30rem]{% endif %}">
+        <div class="max-w-[40rem]" data-enter>
           {%- if esquema and esquema.tipo != "inicio" %}
-          <nav aria-label="Ruta de navegación" class="label mb-5">
-            <a href="/" class="link inline-block py-2">Inicio</a>
-            <span aria-hidden="true" class="mx-1">/</span>
+          <nav aria-label="Ruta de navegación" class="mb-4 text-base text-white/85">
+            <a href="/" class="inline-flex min-h-11 items-center"><span class="link">Inicio</span></a>
+            <span aria-hidden="true" class="mx-2">/</span>
             <span aria-current="page">{{ esquema.miga or esquema.nombre }}</span>
           </nav>
           {%- endif %}
           <h1>{{ hero.titulo }}</h1>
-          <p class="lead mt-6">{{ hero.texto }}</p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row" data-acciones>
-            <a href="#contacto" class="btn-primary">Pedir presupuesto {{ flecha() }}</a>
-            <a href="{{ site.whatsapp }}?text={{ (waTexto or 'Hola, me interesa un presupuesto para una mudanza') | urlencode }}" target="_blank" rel="noopener" class="btn-secondary">Escribir por WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+          <p class="lead mt-5">{{ hero.texto }}</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#contacto" class="btn-cta">Pedir presupuesto gratis {{ flecha() }}</a>
+            <a href="tel:{{ site.telefono }}" class="btn-light">{{ icono("telefono", "h-5 w-5") }} Llamar al {{ site.telefonoTexto }}</a>
           </div>
-          {%- if hero.nota %}
-          <p class="label mt-6">{{ hero.nota }}</p>
-          {%- endif %}
-        </div>
-        <div class="lg:col-span-6">
-          <div class="frame aspect-[4/3] lg:aspect-[5/4]" data-enter-foto>{{ foto(hero.foto, "(min-width: 1024px) 50vw, 100vw", true) }}</div>
         </div>
       </div>
+    </section>
+
+    {#- Franja de confianza: solo datos reales #}
+    <section aria-label="Por qué confiar en nosotros" class="border-b border-line bg-white">
+      <ul class="wrap grid grid-cols-2 gap-x-5 gap-y-5 py-6 sm:gap-x-8 sm:py-7 lg:grid-cols-4">
+        <li>
+          <a href="{{ site.resenas }}" target="_blank" rel="noopener" class="group flex items-center gap-4">
+            <span class="icono hidden sm:flex">{{ icono("estrella") }}</span>
+            <span><span class="block font-semibold text-ink"><span class="link">{{ site.googleNota }} en Google</span></span><span class="block text-[0.9375rem] text-muted sm:text-base">{{ site.googleOpiniones }} opiniones<span class="sr-only"> (se abre en una pestaña nueva)</span></span></span>
+          </a>
+        </li>
+        <li class="flex items-center gap-4"><span class="icono hidden sm:flex">{{ icono("casa") }}</span><span><span class="block font-semibold text-ink">Visita gratis</span><span class="block text-[0.9375rem] text-muted sm:text-base">Presupuesto sin compromiso</span></span></li>
+        <li class="flex items-center gap-4"><span class="icono hidden sm:flex">{{ icono("mundo") }}</span><span><span class="block font-semibold text-ink">Locales y nacionales</span><span class="block text-[0.9375rem] text-muted sm:text-base">También internacionales</span></span></li>
+        <li class="flex items-center gap-4"><span class="icono hidden sm:flex">{{ icono("idioma") }}</span><span><span class="block font-semibold text-ink">Español e inglés</span><span class="block text-[0.9375rem] text-muted sm:text-base">We speak English</span></span></li>
+      </ul>
     </section>
     {%- endif %}
 
@@ -89,17 +99,18 @@
     {%- if faq %}
     <section class="section" id="preguntas">
       <div class="wrap grid gap-8 lg:grid-cols-12 lg:gap-6">
-        <div class="lg:col-span-5 lg:pr-10">
+        <div class="lg:col-span-4 lg:pr-8">
           <h2>{{ faqTitulo or "Preguntas frecuentes" }}</h2>
+          <p class="mt-4">¿No encuentras tu duda? <a href="tel:{{ site.telefono }}" class="link-text">Llámanos al {{ site.telefonoTexto }}</a>.</p>
         </div>
-        <dl class="rows lg:col-span-7">
+        <div class="faq border-t border-line lg:col-span-8">
           {%- for f in faq %}
-          <div>
-            <dt class="text-lg font-medium leading-snug text-ink">{{ f.p }}</dt>
-            <dd class="mt-2">{{ f.r }}</dd>
-          </div>
+          <details{% if loop.first %} open{% endif %}>
+            <summary>{{ f.p }}{{ icono("mas", "mas") }}</summary>
+            <div><p>{{ f.r }}</p></div>
+          </details>
           {%- endfor %}
-        </dl>
+        </div>
       </div>
     </section>
     {%- endif %}
@@ -110,7 +121,7 @@
   </main>
 
   {% include "partials/footer.njk" %}
-  {% include "partials/contacto-rapido.njk" %}
+  {% include "partials/whatsapp.njk" %}
 
   <script src="/js/site.js?v={{ assets.site }}" defer></script>
 </body>
